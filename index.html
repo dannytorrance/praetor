@@ -1741,6 +1741,650 @@ button, a, input, select, textarea {
 .praetor-nav-item:hover:not(.active) .text-\[13px\] { color:#fff !important; }
 .praetor-nav-item:hover:not(.active) .text-\[10px\] { color:rgba(255,255,255,.5) !important; }
 </style>
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<meta name="theme-color" content="#071f46">
+
+<style id="modern-main-ui">
+/* Modern refresh — scoped exclusively to the main content area. */
+.app-main {
+  --ui-bg: #f5f7fb;
+  --ui-surface: rgba(255,255,255,.92);
+  --ui-surface-solid: #ffffff;
+  --ui-border: #e4e9f1;
+  --ui-border-strong: #d6deea;
+  --ui-ink: #13213a;
+  --ui-muted: #718096;
+  --ui-primary: #087f6d;
+  --ui-primary-dark: #066655;
+  --ui-primary-soft: #e7f6f2;
+  --ui-blue: #2563eb;
+  --ui-shadow: 0 8px 28px rgba(23, 42, 76, .07);
+  --ui-shadow-hover: 0 14px 38px rgba(23, 42, 76, .11);
+  position: relative;
+  background:
+    radial-gradient(circle at 92% 2%, rgba(37,99,235,.08), transparent 28rem),
+    radial-gradient(circle at 35% -8%, rgba(8,127,109,.08), transparent 24rem),
+    var(--ui-bg);
+  color: var(--ui-ink);
+  scroll-behavior: smooth;
+}
+.app-main::before {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  inset: 0 0 auto 280px;
+  height: 190px;
+  background: linear-gradient(180deg, rgba(255,255,255,.48), rgba(255,255,255,0));
+  z-index: 0;
+}
+.app-main > .min-h-full {
+  position: relative;
+  z-index: 1;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.app-main .page-header {
+  background: rgba(247,249,252,.82);
+  border-bottom: 1px solid rgba(148,163,184,.18);
+  box-shadow: 0 1px 0 rgba(255,255,255,.85);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+}
+.app-main .page-header h1 {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-style: normal !important;
+  font-weight: 680 !important;
+  font-size: 28px !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.035em !important;
+  color: var(--ui-ink) !important;
+}
+.app-main .page-header p {
+  color: var(--ui-muted) !important;
+  font-size: 12.5px !important;
+  margin-top: 5px !important;
+}
+.app-main .px-8 {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.app-main .card,
+.app-main .card-flat,
+.app-main .stat-card,
+.app-main .participant-card,
+.app-main .info-panel,
+.app-main .bank-card,
+.app-main .token-row {
+  border-color: var(--ui-border);
+}
+.app-main .card {
+  background: var(--ui-surface);
+  border-radius: 18px;
+  box-shadow: var(--ui-shadow);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.app-main .card:hover {
+  border-color: var(--ui-border-strong);
+  box-shadow: var(--ui-shadow-hover);
+}
+.app-main .card-flat {
+  background: rgba(255,255,255,.68);
+  border-radius: 14px;
+}
+.app-main .stat-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 126px;
+  padding: 18px 19px 16px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.98), rgba(249,251,255,.9));
+  border: 1px solid var(--ui-border);
+  border-radius: 17px;
+  box-shadow: 0 6px 22px rgba(23,42,76,.055);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.app-main .stat-card::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  right: -38px;
+  top: -38px;
+  background: linear-gradient(135deg, rgba(8,127,109,.13), rgba(37,99,235,.05));
+}
+.app-main .stat-card:hover {
+  transform: translateY(-2px);
+  border-color: #cfdae8;
+  box-shadow: 0 13px 30px rgba(23,42,76,.09);
+}
+.app-main .stat-card-label {
+  position: relative;
+  z-index: 1;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .075em;
+}
+.app-main .stat-card-value {
+  position: relative;
+  z-index: 1;
+  color: var(--ui-ink);
+  margin-top: 8px;
+  font-size: 25px;
+  font-weight: 720;
+  letter-spacing: -.035em;
+}
+.app-main .stat-card-value.money {
+  font-size: 21px;
+}
+.app-main .stat-card-sub {
+  position: relative;
+  z-index: 1;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+.app-main .btn {
+  min-height: 38px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 12.5px;
+  font-weight: 650;
+  letter-spacing: -.005em;
+  box-shadow: none;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+}
+.app-main .btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.app-main .btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.app-main .btn-primary,
+.app-main .btn-success {
+  background: linear-gradient(180deg, #0a917b, #087967);
+  border: 1px solid rgba(5,96,81,.4);
+  box-shadow: 0 5px 14px rgba(8,127,109,.20);
+}
+.app-main .btn-primary:hover:not(:disabled),
+.app-main .btn-success:hover:not(:disabled) {
+  filter: none;
+  background: linear-gradient(180deg, #0a9d84, #087461);
+  box-shadow: 0 8px 18px rgba(8,127,109,.24);
+}
+.app-main .btn-ghost {
+  color: #475569;
+  background: rgba(255,255,255,.82);
+  border: 1px solid var(--ui-border-strong);
+}
+.app-main .btn-ghost:hover:not(:disabled) {
+  background: #fff;
+  border-color: #becadc;
+  box-shadow: 0 4px 12px rgba(23,42,76,.07);
+}
+.app-main .btn-warning {
+  color: #7c5100;
+  background: #fff3d2;
+  border: 1px solid #f3d98f;
+}
+.app-main .btn-danger {
+  background: #e55345;
+  border: 1px solid #d9483b;
+}
+.app-main .field-input {
+  min-height: 39px;
+  border-radius: 10px;
+  border-color: #dbe3ee;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 1px 2px rgba(15,23,42,.02);
+}
+.app-main .field-input:focus {
+  border-color: #0b8b76;
+  box-shadow: 0 0 0 4px rgba(8,127,109,.11);
+}
+.app-main .filter-tabs {
+  display: inline-flex;
+  width: auto;
+  padding: 4px;
+  margin-bottom: 14px;
+  gap: 3px;
+  background: #e9eef5;
+  border: 1px solid #dde5ef;
+  border-radius: 12px;
+}
+.app-main .filter-tab {
+  border-radius: 8px;
+  padding: 7px 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+.app-main .filter-tab:hover {
+  background: rgba(255,255,255,.68);
+  color: #334155;
+}
+.app-main .filter-tab.active {
+  background: #fff;
+  color: #0f6659;
+  box-shadow: 0 2px 7px rgba(23,42,76,.09);
+}
+.app-main .filter-tab-count {
+  background: rgba(100,116,139,.10);
+}
+.app-main .filter-tab.active .filter-tab-count {
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary-dark);
+}
+.app-main .data-table {
+  color: #334155;
+  font-size: 12.5px;
+}
+.app-main .data-table thead th {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background: #f8fafc;
+  color: #7b8798;
+  border-color: #e8edf4;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.app-main .data-table td {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.app-main .data-table tbody tr + tr {
+  border-color: #edf1f6;
+}
+.app-main .data-table tbody tr:hover {
+  background: #f6f9fc;
+}
+.app-main .alert {
+  border-radius: 14px;
+  border-width: 1px;
+  box-shadow: 0 4px 14px rgba(23,42,76,.04);
+}
+.app-main .alert-critical {
+  background: linear-gradient(135deg,#fff6f5,#fffafa);
+  border-color: #ffd5d1;
+}
+.app-main .alert-warning {
+  background: linear-gradient(135deg,#fffbeb,#fffdf5);
+  border-color: #f7e4aa;
+}
+.app-main .alert-info {
+  background: linear-gradient(135deg,#eff7ff,#f8fbff);
+  border-color: #d6e8fb;
+}
+.app-main .alert-success {
+  background: linear-gradient(135deg,#ecfdf5,#f8fffb);
+  border-color: #ccebdd;
+}
+.app-main .participant-card,
+.app-main .info-panel,
+.app-main .bank-card,
+.app-main .token-row {
+  background: rgba(255,255,255,.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 18px rgba(23,42,76,.045);
+}
+.app-main .participant-card:hover,
+.app-main .bank-card:hover {
+  border-color: #cfd8e6;
+  box-shadow: 0 10px 25px rgba(23,42,76,.08);
+}
+.app-main .bank-card.error {
+  border-color: #f4bbb5;
+  box-shadow: 0 8px 24px rgba(229,83,69,.08);
+}
+.app-main .bank-card-header {
+  padding: 16px 18px;
+}
+.app-main .bank-card-header:hover {
+  background: #f8fafc;
+}
+.app-main .bank-card-body {
+  border-color: #e8edf4;
+  background: #fbfcfe;
+}
+.app-main .next-action-card {
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(23,42,76,.05);
+}
+.app-main .info-panel-title {
+  color: #334155;
+}
+.app-main .stepper {
+  background: rgba(255,255,255,.84);
+  border-radius: 15px;
+  border: 1px solid var(--ui-border);
+  box-shadow: 0 4px 18px rgba(23,42,76,.04);
+}
+.app-main code,
+.app-main .font-mono {
+  font-variant-numeric: tabular-nums;
+}
+.app-main .space-y-4 > * + * {
+  margin-top: 18px;
+}
+.app-main .grid.grid-cols-4 {
+  gap: 14px;
+}
+.app-main .card.overflow-hidden {
+  overflow-x: auto;
+}
+.app-main .data-table {
+  min-width: 820px;
+}
+.app-main ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.app-main ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+.app-main ::-webkit-scrollbar-track {
+  background: transparent;
+}
+@media (max-width: 1100px) {
+  .app-main .grid.grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 760px) {
+  .app-main .px-8 {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  .app-main .page-header {
+    padding-top: 20px !important;
+  }
+  .app-main .page-header h1 {
+    font-size: 24px !important;
+  }
+  .app-main .grid.grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
+
+
+<style id="neutral-board-overrides">
+/* Neutral board palette:
+   - non-interactive information = grayscale
+   - accent color = reserved for clickable / active / focus states
+*/
+.app-main {
+  --ui-bg: #f6f7f9;
+  --ui-surface: rgba(255,255,255,.94);
+  --ui-surface-solid: #ffffff;
+  --ui-border: #e3e6ea;
+  --ui-border-strong: #d4d9df;
+  --ui-ink: #20242b;
+  --ui-muted: #737982;
+  --ui-primary: #087f6d;
+  --ui-primary-dark: #066655;
+  --ui-primary-soft: #e8f5f2;
+  background: #f6f7f9 !important;
+  color: var(--ui-ink);
+}
+
+.app-main::before {
+  display: none !important;
+}
+
+.app-main .page-header {
+  background: rgba(248,249,250,.92) !important;
+  border-bottom-color: #e4e7eb !important;
+}
+
+/* Cards and structural surfaces stay neutral. */
+.app-main .card,
+.app-main .card-flat,
+.app-main .stat-card,
+.app-main .participant-card,
+.app-main .info-panel,
+.app-main .bank-card,
+.app-main .token-row,
+.app-main .stepper,
+.app-main .next-action-card {
+  background: #fff !important;
+  border-color: #e2e5e9 !important;
+  box-shadow: 0 5px 18px rgba(24,29,37,.045) !important;
+}
+
+.app-main .card:hover,
+.app-main .participant-card:hover,
+.app-main .bank-card:hover,
+.app-main .stat-card:hover {
+  border-color: #cfd4da !important;
+  box-shadow: 0 8px 22px rgba(24,29,37,.065) !important;
+}
+
+/* KPI cards: no decorative color washes. */
+.app-main .stat-card {
+  background: #fff !important;
+}
+.app-main .stat-card::after {
+  background: #f1f2f4 !important;
+}
+.app-main .stat-card-label,
+.app-main .stat-card-sub {
+  color: #7a8089 !important;
+}
+.app-main .stat-card-value {
+  color: #20242b !important;
+}
+
+/* Informational/status badges are grayscale, even when inline colors were generated. */
+.app-main .status-badge {
+  background: #f0f1f3 !important;
+  color: #5f6670 !important;
+  border: 1px solid #e0e3e7 !important;
+}
+
+/* Alerts become neutral information panels. */
+.app-main .alert,
+.app-main .alert-critical,
+.app-main .alert-warning,
+.app-main .alert-info,
+.app-main .alert-success {
+  background: #f7f8f9 !important;
+  border-color: #dfe3e7 !important;
+  color: #4f5660 !important;
+  box-shadow: none !important;
+}
+.app-main .alert-icon {
+  color: #747b84 !important;
+}
+.app-main .alert p,
+.app-main .alert div,
+.app-main .alert span:not(.btn):not(button span) {
+  color: #555c65 !important;
+}
+
+/* Utility text colors used for non-interactive status/info content -> grayscale. */
+.app-main .text-red-600,
+.app-main .text-red-700,
+.app-main .text-red-800,
+.app-main .text-amber-700,
+.app-main .text-amber-800,
+.app-main .text-blue-700,
+.app-main .text-blue-800,
+.app-main .text-green-600,
+.app-main .text-green-700,
+.app-main .text-green-800,
+.app-main .text-emerald-600,
+.app-main .text-emerald-700,
+.app-main .text-emerald-800 {
+  color: #626973 !important;
+}
+
+/* Non-interactive informational icons are grayscale. */
+.app-main .stat-card svg,
+.app-main .info-panel svg,
+.app-main .participant-card svg,
+.app-main .alert svg,
+.app-main .bank-card svg,
+.app-main .token-row svg {
+  color: #7a8089 !important;
+  stroke: currentColor;
+}
+.app-main .info-panel [style*="color:"],
+.app-main .participant-card [style*="color:"],
+.app-main .alert [style*="color:"],
+.app-main .stat-card [style*="color:"] {
+  color: #747b84 !important;
+}
+
+/* Neutral bank/error presentation when it is only informational. */
+.app-main .bank-card.error {
+  border-color: #d9dde2 !important;
+  box-shadow: 0 5px 18px rgba(24,29,37,.045) !important;
+}
+.app-main .bank-card-body {
+  background: #f8f9fa !important;
+}
+
+/* Filters: only the active/clickable state gets the accent. */
+.app-main .filter-tabs {
+  background: #eceff2 !important;
+  border-color: #dde1e5 !important;
+}
+.app-main .filter-tab {
+  color: #666d76 !important;
+}
+.app-main .filter-tab:hover {
+  background: #fff !important;
+  color: #2f353d !important;
+}
+.app-main .filter-tab.active {
+  background: var(--ui-primary) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 7px rgba(8,127,109,.18) !important;
+}
+.app-main .filter-tab.active .filter-tab-count {
+  background: rgba(255,255,255,.17) !important;
+  color: #fff !important;
+}
+
+/* Inputs stay neutral until focused. */
+.app-main .field-input {
+  border-color: #d9dde2 !important;
+  background: #fff !important;
+}
+.app-main .field-input:focus {
+  border-color: var(--ui-primary) !important;
+  box-shadow: 0 0 0 4px rgba(8,127,109,.10) !important;
+}
+
+/* Table is deliberately monochrome. */
+.app-main .data-table thead th {
+  background: #f5f6f7 !important;
+  color: #747b84 !important;
+  border-color: #e5e7ea !important;
+}
+.app-main .data-table tbody tr + tr {
+  border-color: #eceef0 !important;
+}
+.app-main .data-table tbody tr:hover {
+  background: #f7f8f9 !important;
+}
+
+/* Color is reserved for things the user can actually click. */
+.app-main button:not(:disabled),
+.app-main a[href],
+.app-main [role="button"] {
+  --interactive-accent: var(--ui-primary);
+}
+.app-main button:not(:disabled) svg,
+.app-main a[href] svg,
+.app-main [role="button"] svg {
+  color: currentColor !important;
+  stroke: currentColor;
+}
+.app-main button.text-red-600,
+.app-main button.text-red-700,
+.app-main button.text-red-800,
+.app-main button.text-amber-700,
+.app-main button.text-amber-800,
+.app-main button.text-blue-700,
+.app-main button.text-blue-800,
+.app-main a.text-red-600,
+.app-main a.text-red-700,
+.app-main a.text-red-800,
+.app-main a.text-amber-700,
+.app-main a.text-amber-800,
+.app-main a.text-blue-700,
+.app-main a.text-blue-800 {
+  color: var(--ui-primary) !important;
+}
+
+/* Primary/active actions retain accent color. */
+.app-main .btn-primary,
+.app-main .btn-success {
+  color: #fff !important;
+  background: var(--ui-primary) !important;
+  border-color: var(--ui-primary-dark) !important;
+  box-shadow: 0 5px 14px rgba(8,127,109,.16) !important;
+}
+.app-main .btn-primary:hover:not(:disabled),
+.app-main .btn-success:hover:not(:disabled) {
+  background: var(--ui-primary-dark) !important;
+}
+
+/* Secondary actions stay monochrome until interaction. */
+.app-main .btn-ghost,
+.app-main .btn-warning,
+.app-main .btn-danger {
+  color: #4e555e !important;
+  background: #fff !important;
+  border-color: #d7dce1 !important;
+  box-shadow: none !important;
+}
+.app-main .btn-ghost:hover:not(:disabled),
+.app-main .btn-warning:hover:not(:disabled),
+.app-main .btn-danger:hover:not(:disabled) {
+  color: var(--ui-primary) !important;
+  background: var(--ui-primary-soft) !important;
+  border-color: rgba(8,127,109,.35) !important;
+}
+
+/* Generic clickable text can reveal accent on hover/focus, but not before. */
+.app-main button:not(.btn-primary):not(.btn-success):not(.filter-tab),
+.app-main a[href] {
+  transition: color .15s ease, background .15s ease, border-color .15s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .app-main button:not(.btn-primary):not(.btn-success):not(.filter-tab):hover,
+  .app-main a[href]:hover {
+    color: var(--ui-primary) !important;
+  }
+}
+.app-main button:focus-visible,
+.app-main a[href]:focus-visible,
+.app-main [role="button"]:focus-visible {
+  outline: 3px solid rgba(8,127,109,.20);
+  outline-offset: 2px;
+}
+
+/* Remove remaining colored decorative backgrounds inside the board. */
+.app-main [style*="background: '#eff6ff'"],
+.app-main [style*="background: '#fef3d4'"],
+.app-main [style*="background: '#fef2f2'"],
+.app-main [style*="background: '#ecfdf5'"],
+.app-main [style*="background: '#eef2ff'"] {
+  background: #f1f2f4 !important;
+  color: #626973 !important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -1892,7 +2536,7 @@ function App() {
     const navigate = (screen, id) => setNav({ screen, selectedId: id });
     return (React.createElement("div", { className: "flex h-full bg-parchment font-sans overflow-hidden" },
         React.createElement(Sidebar_1.default, { current: nav.screen, navigate: navigate }),
-        React.createElement("main", { className: "flex-1 overflow-y-auto min-w-0" },
+        React.createElement("main", { className: "flex-1 overflow-y-auto min-w-0 app-main" },
             nav.screen === 'centrum' && React.createElement(CentrumUschov_1.default, { navigate: navigate }),
             nav.screen === 'detail' && (React.createElement(DetailUschovy_1.default, { id: nav.selectedId ?? 'US-2024-0142', navigate: navigate })),
             nav.screen === 'ucty' && React.createElement(PrehledUctu_1.default, { navigate: navigate }),
