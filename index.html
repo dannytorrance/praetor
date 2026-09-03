@@ -2491,6 +2491,9 @@ button, a, input, select, textarea {
   }
 
   const React = { createElement, Fragment, useState, StrictMode: Fragment };
+  // CommonJS/TypeScript compatibility: modules compiled from `import React from 'react'`
+  // access the runtime through react_1.default.
+  React.default = React;
   const ReactDOM = {
     createRoot(node){ rootNode=node; return { render(vnode){ rootVNodeFactory=()=>vnode; rerender(); } }; },
     render(vnode,node){ rootNode=node; rootVNodeFactory=()=>vnode; rerender(); }
