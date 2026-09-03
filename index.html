@@ -3,11 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Advokátní úschova</title>
-<style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+<style>0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&display=swap');
+400;500;600;700&display=swap');
+500;600&display=swap');
 /* ─── Figma-resolved fonts ───────────────────────────────────────────────── */
 @font-face {
   font-family: "Roboto:Light";
@@ -913,17 +912,126 @@ button{cursor:pointer}
 a{color:inherit}
 img,svg{max-width:100%}
 </style>
-<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 </head>
 <body>
 <div id="root"></div>
 
 <script>
+/* Tiny standalone React-compatible runtime for this generated app.
+   Supports only what the source uses: createElement, Fragment and useState. */
+(function(global){
+  const stateByPath = new Map();
+  let currentPath = null;
+  let hookIndex = 0;
+  let rootNode = null;
+  let rootVNodeFactory = null;
+
+  const Fragment = Symbol('Fragment');
+
+  function flat(arr, out){
+    for(const v of arr){
+      if(Array.isArray(v)) flat(v,out); else out.push(v);
+    }
+    return out;
+  }
+
+  function createElement(type, props){
+    const children = flat(Array.prototype.slice.call(arguments,2), []);
+    return { type, props: Object.assign({}, props || {}, { children }) };
+  }
+
+  function useState(initial){
+    if(currentPath == null) throw new Error('useState() called outside component');
+    let hooks = stateByPath.get(currentPath);
+    if(!hooks){ hooks=[]; stateByPath.set(currentPath,hooks); }
+    const i = hookIndex++;
+    if(!(i in hooks)) hooks[i] = typeof initial === 'function' ? initial() : initial;
+    const path = currentPath;
+    function setState(next){
+      const hs = stateByPath.get(path) || [];
+      const prev = hs[i];
+      hs[i] = typeof next === 'function' ? next(prev) : next;
+      stateByPath.set(path, hs);
+      rerender();
+    }
+    return [hooks[i], setState];
+  }
+
+  function setProp(el, name, value){
+    if(name === 'children' || name === 'key' || name === 'ref') return;
+    if(name === 'className'){ el.setAttribute('class', value || ''); return; }
+    if(name === 'htmlFor'){ el.setAttribute('for', value || ''); return; }
+    if(name === 'style' && value && typeof value === 'object'){
+      for(const k in value){
+        let v=value[k];
+        if(v == null) continue;
+        const cssName = k.replace(/[A-Z]/g, m => '-' + m.toLowerCase());
+        if(typeof v === 'number' && !/^(opacity|zIndex|fontWeight|lineHeight|flex|flexGrow|flexShrink|order)$/.test(k)) v = v + 'px';
+        try { el.style.setProperty(cssName, String(v)); } catch(e) {}
+      }
+      return;
+    }
+    if(/^on[A-Z]/.test(name) && typeof value === 'function'){
+      el.addEventListener(name.slice(2).toLowerCase(), value); return;
+    }
+    if(name === 'value' || name === 'checked' || name === 'selected'){
+      try { el[name] = value; } catch(e) {}
+      if(value === false || value == null) el.removeAttribute(name); else if(name !== 'value') el.setAttribute(name,'');
+      return;
+    }
+    if(value === false || value == null) return;
+    if(value === true){ el.setAttribute(name,''); return; }
+    try { el.setAttribute(name, String(value)); } catch(e) {}
+  }
+
+  function mount(vnode, parent, path){
+    if(vnode == null || vnode === false || vnode === true) return;
+    if(typeof vnode === 'string' || typeof vnode === 'number'){
+      parent.appendChild(document.createTextNode(String(vnode))); return;
+    }
+    if(Array.isArray(vnode)){
+      vnode.forEach((v,i)=>mount(v,parent,path+'.'+i)); return;
+    }
+    if(vnode.type === Fragment){
+      (vnode.props.children || []).forEach((v,i)=>mount(v,parent,path+'.f'+i)); return;
+    }
+    if(typeof vnode.type === 'function'){
+      const prevPath=currentPath, prevHook=hookIndex;
+      currentPath=path+'@'+(vnode.type.name || 'anon'); hookIndex=0;
+      let child;
+      try { child = vnode.type(vnode.props || {}); }
+      finally { currentPath=prevPath; hookIndex=prevHook; }
+      mount(child,parent,path+'.c'); return;
+    }
+    const el=document.createElement(vnode.type);
+    const props=vnode.props || {};
+    for(const k in props) setProp(el,k,props[k]);
+    (props.children || []).forEach((v,i)=>mount(v,el,path+'.'+i));
+    parent.appendChild(el);
+  }
+
+  function rerender(){
+    if(!rootNode || !rootVNodeFactory) return;
+    while(rootNode.firstChild) rootNode.removeChild(rootNode.firstChild);
+    currentPath=null; hookIndex=0;
+    mount(rootVNodeFactory(),rootNode,'0');
+  }
+
+  const React = { createElement, Fragment, useState, StrictMode: Fragment };
+  const ReactDOM = {
+    createRoot(node){ rootNode=node; return { render(vnode){ rootVNodeFactory=()=>vnode; rerender(); } }; },
+    render(vnode,node){ rootNode=node; rootVNodeFactory=()=>vnode; rerender(); }
+  };
+  global.React=React;
+  global.ReactDOM=ReactDOM;
+})(window);
+</script>
+
+<script>
 (function(){
   const __mods = Object.create(null), __cache = Object.create(null);
   function __norm(p){
-    const a=[]; for(const x of p.split('/')){ if(!x||x==='. ') continue; if(x==='..') a.pop(); else a.push(x); } return a.join('/');
+    const a=[]; for(const x of p.split('/')){ if(!x||x==='.') continue; if(x==='..') a.pop(); else a.push(x); } return a.join('/');
   }
   function __require(req, from){
     if(req==='react') return window.React;
@@ -2802,17 +2910,12 @@ client_1.default.createRoot(document.getElementById('root')).render(react_1.defa
 
 };
   try {
-    if (!window.React || !window.ReactDOM || !window.ReactDOM.createRoot) {
-      throw new Error('React runtime se nepodařilo načíst.');
-    }
-    const App=__require('src/App','src/boot').default;
+    const App=__require('App','boot').default;
     window.ReactDOM.createRoot(document.getElementById('root')).render(window.React.createElement(App));
   } catch (err) {
     console.error(err);
-    const root = document.getElementById('root');
-    root.innerHTML = '<div style="font-family:system-ui,sans-serif;padding:40px;max-width:900px;margin:auto"><h1>Aplikaci se nepodařilo spustit</h1><p>Otevři F12 → Console pro detail chyby.</p><pre style="white-space:pre-wrap;background:#f5f5f5;padding:16px;border-radius:8px">' +
-      String(err && err.stack || err).replace(/[&<>]/g, function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])}) +
-      '</pre></div>';
+    const root=document.getElementById('root');
+    root.innerHTML='<div style="font-family:system-ui,sans-serif;padding:40px;max-width:900px;margin:auto"><h1>Aplikaci se nepodařilo spustit</h1><p>Chyba JavaScriptu:</p><pre style="white-space:pre-wrap;background:#f5f5f5;padding:16px;border-radius:8px">'+String(err&&err.stack||err).replace(/[&<>]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])})+'</pre></div>';
   }
 })();
 </script>
