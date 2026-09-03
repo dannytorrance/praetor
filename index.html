@@ -291,7 +291,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11.5px;
+  font-size:13px;
   font-weight: 500;
   letter-spacing: 0.01em;
   padding: 3px 10px 3px 8px;
@@ -432,7 +432,7 @@ body {
 .data-table thead th {
   padding: 10px 20px;
   text-align: left;
-  font-size: 10.5px;
+  font-size:13px;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -590,7 +590,7 @@ body {
   transition: box-shadow 0.2s;
 }
 .stat-card-label {
-  font-size: 10.5px;
+  font-size:13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -657,7 +657,7 @@ body {
   color: #fff;
 }
 .section-label {
-  font-size: 10.5px;
+  font-size:13px;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -688,7 +688,7 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 .info-panel-title {
-  font-size: 10.5px;
+  font-size:13px;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1352,22 +1352,22 @@ button, a, input, select, textarea {
   line-height: var(--tw-leading, var(--text-3xl--line-height));
 }
 .text-\[9\.5px\] {
-  font-size: 9.5px;
+  font-size:13px;
 }
 .text-\[10\.5px\] {
-  font-size: 10.5px;
+  font-size:13px;
 }
 .text-\[10px\] {
   font-size:13px;
 }
 .text-\[11\.5px\] {
-  font-size: 11.5px;
+  font-size:13px;
 }
 .text-\[11px\] {
   font-size:13px;
 }
 .text-\[12\.5px\] {
-  font-size: 12.5px;
+  font-size:13px;
 }
 .text-\[12px\] {
   font-size:13px;
@@ -1804,7 +1804,7 @@ button, a, input, select, textarea {
 }
 .app-main .page-header p {
   color: var(--ui-muted) !important;
-  font-size: 12.5px !important;
+  font-size:13px !important;
   margin-top: 5px !important;
 }
 .app-main .px-8 {
@@ -1892,7 +1892,7 @@ button, a, input, select, textarea {
   padding: 8px 16px;
   border-radius: 10px;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: 12.5px;
+  font-size:13px;
   font-weight: 650;
   letter-spacing: -.005em;
   box-shadow: none;
@@ -1980,7 +1980,7 @@ button, a, input, select, textarea {
 }
 .app-main .data-table {
   color: #334155;
-  font-size: 12.5px;
+  font-size:13px;
 }
 .app-main .data-table thead th {
   padding-top: 13px;
@@ -2515,6 +2515,200 @@ html { font-size:16px; }
 }
 </style>
 
+
+<style id="readability-contrast-pass">
+/* Final readability pass
+   Base = 1rem. No deliberate font smaller than 13px.
+   Secondary copy is pushed toward 14–15px instead of microtype.
+*/
+html { font-size: 16px; }
+
+.app-main {
+  --type-floor: 0.8125rem; /* 13px */
+  --type-meta: 0.875rem;   /* 14px */
+  --type-small: 0.9375rem; /* 15px */
+  --type-base: 1rem;       /* 16px */
+  --type-lead: 1.0625rem;  /* 17px */
+  --type-title: 1.9375rem; /* 31px */
+
+  --text-strong: #1d232b;
+  --text-body: #343b44;
+  --text-muted: #515a65;
+  --text-soft: #626c77;
+  --surface-main: #f5f6f8;
+  --surface-card: #ffffff;
+  --surface-subtle: #f0f2f4;
+  --border: #d9dee4;
+  --border-strong: #cbd2da;
+
+  font-size: var(--type-base) !important;
+  color: var(--text-body) !important;
+}
+
+/* Kill remaining microtype utility classes through cascade as well. */
+.app-main .text-xs,
+.app-main .text-\[9px\],
+.app-main .text-\[10px\],
+.app-main .text-\[11px\],
+.app-main .text-\[12px\],
+.app-main .text-\[12\.5px\],
+.app-main .text-\[13px\] {
+  font-size: var(--type-meta) !important;
+  line-height: 1.45 !important;
+}
+.app-main .text-sm {
+  font-size: var(--type-small) !important;
+  line-height: 1.5 !important;
+}
+.app-main .text-base {
+  font-size: var(--type-base) !important;
+  line-height: 1.55 !important;
+}
+.app-main .text-lg {
+  font-size: var(--type-lead) !important;
+}
+
+/* Stronger contrast on gray surfaces. */
+.app-main p,
+.app-main td,
+.app-main label,
+.app-main .field-label {
+  color: var(--text-body);
+}
+.app-main .text-gray-400,
+.app-main .text-gray-500,
+.app-main .text-slate-400,
+.app-main .text-slate-500,
+.app-main .stat-card-sub,
+.app-main .page-header p {
+  color: var(--text-muted) !important;
+}
+.app-main .text-gray-600,
+.app-main .text-slate-600,
+.app-main .stat-card-label,
+.app-main .info-panel-title {
+  color: #444c56 !important;
+}
+.app-main .page-header h1,
+.app-main h1,
+.app-main h2,
+.app-main h3 {
+  color: var(--text-strong) !important;
+}
+
+/* Main headings and section headings are a little larger. */
+.app-main .page-header h1 {
+  font-size: var(--type-title) !important;
+}
+.app-main h2 {
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+}
+.app-main h3 {
+  font-size: 1.0625rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Tables: 15px body, 14px header, with higher contrast. */
+.app-main .data-table {
+  font-size: var(--type-small) !important;
+  color: var(--text-body) !important;
+}
+.app-main .data-table td {
+  font-size: var(--type-small) !important;
+  color: #313842 !important;
+}
+.app-main .data-table thead th {
+  font-size: var(--type-meta) !important;
+  color: #49525d !important;
+  background: #eef1f4 !important;
+}
+.app-main .data-table tbody tr:hover {
+  background: #f1f4f3 !important;
+}
+
+/* Status/meta text remains neutral but readable. */
+.app-main .status-badge {
+  font-size: var(--type-meta) !important;
+  color: #414952 !important;
+  background: #eceff2 !important;
+  border-color: #d8dde3 !important;
+}
+.app-main .filter-tab-count {
+  font-size: var(--type-meta) !important;
+}
+.app-main .stat-card-label,
+.app-main .stat-card-sub {
+  font-size: var(--type-meta) !important;
+}
+.app-main .participant-card,
+.app-main .bank-card,
+.app-main .token-row,
+.app-main .alert,
+.app-main .info-panel,
+.app-main .next-action-card {
+  font-size: var(--type-small) !important;
+}
+
+/* Buttons and controls are comfortably readable. */
+.app-main .btn,
+.app-main .filter-tab {
+  font-size: var(--type-small) !important;
+}
+.app-main input,
+.app-main select,
+.app-main textarea,
+.app-main .field-input {
+  font-size: var(--type-base) !important;
+}
+
+/* Cards: remove the short, hard UI shadow completely. */
+.app-main .card {
+  box-shadow: none !important;
+  border-color: var(--border) !important;
+  background: var(--surface-card) !important;
+}
+
+/* Other grouped surfaces get only a long, soft atmospheric shadow. */
+.app-main .stat-card,
+.app-main .participant-card,
+.app-main .info-panel,
+.app-main .bank-card,
+.app-main .token-row,
+.app-main .stepper,
+.app-main .next-action-card {
+  box-shadow: 0 18px 48px rgba(22, 29, 37, 0.055) !important;
+  border-color: var(--border) !important;
+}
+
+/* Interactive hover can lift, but the default remains calm. */
+@media (hover:hover) and (pointer:fine) {
+  .app-main .card:hover {
+    box-shadow: 0 22px 54px rgba(22, 29, 37, 0.07) !important;
+    border-color: var(--border-strong) !important;
+  }
+  .app-main .participant-card:hover,
+  .app-main .bank-card:hover {
+    box-shadow: 0 22px 54px rgba(22, 29, 37, 0.075) !important;
+  }
+}
+
+/* Informational icons: neutral, but darker for contrast. */
+.app-main .stat-card svg,
+.app-main .info-panel svg,
+.app-main .participant-card svg,
+.app-main .alert svg,
+.app-main .bank-card svg,
+.app-main .token-row svg {
+  color: #59626d !important;
+}
+
+/* Slightly brighter board background to improve text/background separation. */
+.app-main {
+  background: #f5f6f8 !important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -2738,7 +2932,7 @@ function BankovniIntegrace({ navigate: _navigate }) {
     return (React.createElement("div", { className: "min-h-full" },
         React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
             React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "Bankovn\u00ED integrace"),
-            React.createElement("p", { className: "text-[12px] mt-0.5", style: { color: '#888888' } }, "Spr\u00E1va bankovn\u00EDch napojen\u00ED a synchronizace \u00FAschovn\u00EDch \u00FA\u010Dt\u016F")),
+            React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, "Spr\u00E1va bankovn\u00EDch napojen\u00ED a synchronizace \u00FAschovn\u00EDch \u00FA\u010Dt\u016F")),
         React.createElement("div", { className: "px-8 py-6 space-y-4 max-w-3xl" },
             MOCK.some((i) => i.stav === 'chyba') && (React.createElement("div", { className: "alert alert-critical" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#FF6250' } }, "\u26A0"),
@@ -2754,14 +2948,14 @@ function BankovniIntegrace({ navigate: _navigate }) {
                 return (React.createElement("div", { key: integ.id, className: `bank-card${integ.stav === 'chyba' ? ' error' : ''}` },
                     React.createElement("div", { className: "bank-card-header", onClick: () => setExpanded(isExpanded ? null : integ.id) },
                         React.createElement("div", { className: "flex items-center gap-4" },
-                            React.createElement("div", { className: "w-10 h-10 rounded-lg flex items-center justify-center font-mono font-bold text-[11px] shrink-0", style: {
+                            React.createElement("div", { className: "w-10 h-10 rounded-lg flex items-center justify-center font-mono font-bold text-[13px] shrink-0", style: {
                                     background: integ.stav === 'chyba' ? '#fef2f2' : '#F3F3F3',
                                     color: integ.stav === 'chyba' ? '#991b1b' : '#2D2D2D',
                                     border: integ.stav === 'chyba' ? '1px solid #fca5a5' : '1px solid #E0E0E0',
                                 } }, integ.zkratka),
                             React.createElement("div", null,
                                 React.createElement("div", { className: "font-semibold text-[14px] text-ink" }, integ.banka),
-                                React.createElement("div", { className: "text-[11.5px]", style: { color: '#888888' } },
+                                React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } },
                                     TYP_CFG[integ.typ],
                                     " \u00B7 ",
                                     integ.uctu,
@@ -2771,18 +2965,18 @@ function BankovniIntegrace({ navigate: _navigate }) {
                                 React.createElement("span", { className: "status-badge", style: { background: cfg.bg, color: cfg.text } },
                                     React.createElement("span", { className: "status-dot", style: { background: cfg.dot } }),
                                     cfg.label),
-                                integ.posledniSync && (React.createElement("div", { className: "text-[10px] font-mono mt-1", style: { color: '#888888' } },
+                                integ.posledniSync && (React.createElement("div", { className: "text-[13px] font-mono mt-1", style: { color: '#888888' } },
                                     "Sync: ",
                                     integ.posledniSync))),
-                            React.createElement("button", { className: "btn btn-ghost text-[12px]", style: { padding: '5px 12px' }, onClick: (e) => {
+                            React.createElement("button", { className: "btn btn-ghost text-[13px]", style: { padding: '5px 12px' }, onClick: (e) => {
                                     e.stopPropagation();
                                     handleSync(integ.id);
                                 }, disabled: syncing === integ.id }, syncing === integ.id ? (React.createElement(React.Fragment, null,
                                 React.createElement("span", { className: "spinner", style: { borderTopColor: '#555555', width: 12, height: 12 } }),
                                 "Sync\u2026")) : ('↻ Sync')),
-                            React.createElement("span", { className: "text-[11px]", style: { color: '#888888' } }, isExpanded ? '▲' : '▼'))),
+                            React.createElement("span", { className: "text-[13px]", style: { color: '#888888' } }, isExpanded ? '▲' : '▼'))),
                     isExpanded && (React.createElement("div", { className: "bank-card-body" },
-                        integ.chyba && (React.createElement("div", { className: "rounded-lg px-4 py-3 mb-4 text-[12px]", style: {
+                        integ.chyba && (React.createElement("div", { className: "rounded-lg px-4 py-3 mb-4 text-[13px]", style: {
                                 background: '#fef2f2',
                                 border: '1px solid #fca5a5',
                                 color: '#991b1b',
@@ -2792,7 +2986,7 @@ function BankovniIntegrace({ navigate: _navigate }) {
                         React.createElement("div", { className: "grid grid-cols-2 gap-6" },
                             React.createElement("div", null,
                                 React.createElement("div", { className: "section-label" }, "Konfigurace"),
-                                React.createElement("div", { className: "space-y-1.5 text-[12.5px]" }, [
+                                React.createElement("div", { className: "space-y-1.5 text-[13px]" }, [
                                     ['Typ napojení', TYP_CFG[integ.typ]],
                                     ['Počet účtů', integ.uctu.toString()],
                                     ['Poslední sync', integ.posledniSync ?? '–'],
@@ -2802,8 +2996,8 @@ function BankovniIntegrace({ navigate: _navigate }) {
                             React.createElement("div", null,
                                 React.createElement("div", { className: "section-label" }, "Akce"),
                                 React.createElement("div", { className: "space-y-2" },
-                                    integ.stav === 'chyba' && (React.createElement("button", { className: "block text-[12.5px] font-medium text-blue-700 underline hover:text-blue-900" }, "Obnovit p\u0159\u00EDstupov\u00FD token \u2192")),
-                                    React.createElement("button", { className: "block text-[12.5px] text-ink-2 underline hover:text-ink" }, "Ru\u010Dn\u00ED import v\u00FDpisu"),
+                                    integ.stav === 'chyba' && (React.createElement("button", { className: "block text-[13px] font-medium text-blue-700 underline hover:text-blue-900" }, "Obnovit p\u0159\u00EDstupov\u00FD token \u2192")),
+                                    React.createElement("button", { className: "block text-[13px] text-ink-2 underline hover:text-ink" }, "Ru\u010Dn\u00ED import v\u00FDpisu"),
                                     React.createElement("button", { className: "btn-danger-ghost btn block text-left p-0" }, "Odpojit bankovn\u00ED napojen\u00ED"))))))));
             }),
             React.createElement("button", { className: "w-full py-3.5 text-[13px] font-medium rounded-xl transition-colors", style: {
@@ -2876,7 +3070,7 @@ function CentrumUschov({ navigate }) {
             React.createElement("div", { className: "flex items-start justify-between" },
                 React.createElement("div", null,
                     React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "Centrum \u00FAschov"),
-                    React.createElement("p", { className: "text-[12px] mt-0.5", style: { color: '#888888' } }, "02. z\u00E1\u0159\u00ED 2026 \u00B7 JUDr. Pavel Kr\u00E1tk\u00FD")),
+                    React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, "02. z\u00E1\u0159\u00ED 2026 \u00B7 JUDr. Pavel Kr\u00E1tk\u00FD")),
                 React.createElement("button", { className: "btn btn-primary mt-1" }, "+ Nov\u00E1 \u00FAschova"))),
         React.createElement("div", { className: "px-8 py-6" },
             disconnected.length > 0 && (React.createElement("div", { className: "alert alert-critical mb-4" },
@@ -2885,8 +3079,8 @@ function CentrumUschov({ navigate }) {
                     React.createElement("p", { className: "font-semibold text-red-800 text-[13px]" }, disconnected.length === 1
                         ? '1 úschova ve stavu Stav neznámý / rozpojený'
                         : `${disconnected.length} úschovy ve stavu Stav neznámý / rozpojený`),
-                    React.createElement("p", { className: "text-red-700 text-[12px] mt-0.5" }, "Tyto \u00FAschovy vy\u017Eaduj\u00ED ru\u010Dn\u00ED prov\u011B\u0159en\u00ED \u2014 zm\u011Bna byla provedena p\u0159\u00EDmo v \u010CAK a Praetor nem\u016F\u017Ee automaticky pokra\u010Dovat v procesu."),
-                    React.createElement("div", { className: "flex gap-2 mt-2 flex-wrap" }, disconnected.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[11px] text-red-700 underline hover:text-red-900 font-semibold" }, u.id))))))),
+                    React.createElement("p", { className: "text-red-700 text-[13px] mt-0.5" }, "Tyto \u00FAschovy vy\u017Eaduj\u00ED ru\u010Dn\u00ED prov\u011B\u0159en\u00ED \u2014 zm\u011Bna byla provedena p\u0159\u00EDmo v \u010CAK a Praetor nem\u016F\u017Ee automaticky pokra\u010Dovat v procesu."),
+                    React.createElement("div", { className: "flex gap-2 mt-2 flex-wrap" }, disconnected.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[13px] text-red-700 underline hover:text-red-900 font-semibold" }, u.id))))))),
             chybovane.length > 0 && (React.createElement("div", { className: "alert alert-warning mb-4" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#d97706' } }, "!"),
                 React.createElement("p", { className: "text-amber-800 text-[13px]" },
@@ -2894,7 +3088,7 @@ function CentrumUschov({ navigate }) {
                         ? '1 úschova vyžaduje pozornost:'
                         : `${chybovane.length} úschovy vyžadují pozornost:`),
                     ' ',
-                    chybovane.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[11px] text-amber-700 underline hover:text-amber-900 font-semibold mr-2" }, u.id)))))),
+                    chybovane.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[13px] text-amber-700 underline hover:text-amber-900 font-semibold mr-2" }, u.id)))))),
             React.createElement("div", { className: "grid grid-cols-4 gap-3 mb-6" },
                 React.createElement("div", { className: "stat-card" },
                     React.createElement("div", { className: "stat-card-label" }, "Aktivn\u00ED \u00FAschovy"),
@@ -2937,20 +3131,20 @@ function CentrumUschov({ navigate }) {
                             React.createElement("td", null,
                                 React.createElement("div", { className: "font-mono text-[14px] font-semibold mb-0.5", style: { color: isDisconnected ? '#FF6250' : '#888888' } }, u.id),
                                 React.createElement("div", { className: "font-medium text-ink text-[13px] leading-snug" }, u.vec),
-                                React.createElement("div", { className: "font-mono text-[11px] mt-0.5", style: { color: '#888888' } }, u.spis)),
+                                React.createElement("div", { className: "font-mono text-[13px] mt-0.5", style: { color: '#888888' } }, u.spis)),
                             React.createElement("td", null,
                                 React.createElement("div", { className: "text-[13px] text-ink" }, u.slozitele[0]?.jmeno),
-                                u.slozitele.length > 1 && (React.createElement("div", { className: "text-[11px]", style: { color: '#888888' } },
+                                u.slozitele.length > 1 && (React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } },
                                     "+",
                                     u.slozitele.length - 1,
                                     " dal\u0161\u00ED"))),
                             React.createElement("td", null,
                                 React.createElement(StatusBadge_1.default, { stav: u.stav, size: "sm" })),
-                            React.createElement("td", null, u.ucetId ? (React.createElement("span", { className: "font-mono text-[11.5px]", style: { color: '#555555' } }, UCET_MAP[u.ucetId] ?? '–')) : (React.createElement("span", { className: "text-[12px]", style: { color: '#888888' } }, "\u2013"))),
+                            React.createElement("td", null, u.ucetId ? (React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#555555' } }, UCET_MAP[u.ucetId] ?? '–')) : (React.createElement("span", { className: "text-[13px]", style: { color: '#888888' } }, "\u2013"))),
                             React.createElement("td", { style: { textAlign: 'right' } },
                                 React.createElement("span", { className: "font-mono text-[13px] font-semibold text-ink" }, (0, mockData_1.formatCastka)(u.castka))),
                             React.createElement("td", null,
-                                React.createElement("button", { className: "text-[12px] font-medium transition-colors", style: { color: '#888888' }, onClick: (e) => {
+                                React.createElement("button", { className: "text-[13px] font-medium transition-colors", style: { color: '#888888' }, onClick: (e) => {
                                         e.stopPropagation();
                                         navigate('detail', u.id);
                                     }, onMouseEnter: (e) => (e.currentTarget.style.color = '#2D2D2D'), onMouseLeave: (e) => (e.currentTarget.style.color = '#888888') }, "Detail \u2192"))));
@@ -2986,7 +3180,7 @@ function ProcessStepper({ stav }) {
             React.createElement("span", { className: "alert-icon", style: { color: '#FF6250', fontSize: 20 } }, "\u26A0"),
             React.createElement("div", null,
                 React.createElement("span", { className: "font-bold text-red-800 text-[13px]" }, "Stav nezn\u00E1m\u00FD / rozpojen\u00FD \u2014 ru\u010Dn\u00ED z\u00E1sah nezbytn\u00FD."),
-                React.createElement("span", { className: "text-red-700 text-[12.5px] ml-1" }, "Praetor nem\u016F\u017Ee pokra\u010Dovat v procesu. Zm\u011Bna stavu byla provedena p\u0159\u00EDmo v \u010CAK."))));
+                React.createElement("span", { className: "text-red-700 text-[13px] ml-1" }, "Praetor nem\u016F\u017Ee pokra\u010Dovat v procesu. Zm\u011Bna stavu byla provedena p\u0159\u00EDmo v \u010CAK."))));
     }
     const current = stepIndex(stav);
     return (React.createElement("div", { className: "stepper mb-5" }, STEPS.map((step, i) => {
@@ -3046,7 +3240,7 @@ function NextActionCard({ stav, chyba, navigate, id, }) {
         React.createElement("div", { className: "flex items-start gap-3 flex-1" },
             React.createElement("span", { style: { fontSize: 18, lineHeight: 1.5, flexShrink: 0 } }, c.icon),
             React.createElement("div", null,
-                React.createElement("div", { className: "font-semibold text-[12px] uppercase tracking-wide mb-1", style: { color: '#555555' } }, "Dal\u0161\u00ED krok"),
+                React.createElement("div", { className: "font-semibold text-[13px] uppercase tracking-wide mb-1", style: { color: '#555555' } }, "Dal\u0161\u00ED krok"),
                 React.createElement("div", { className: "text-[13px] text-ink leading-relaxed" }, c.desc))),
         c.cta && stav === 'pripravena' && (React.createElement("button", { className: "btn btn-success shrink-0", onClick: () => navigate('hlaseni-cak', id) }, c.cta)),
         chyba && stav === 'pripravena' && (React.createElement("button", { className: "btn btn-warning shrink-0", onClick: () => navigate('nastaveni-cak') }, "Obnovit token \u2192")),
@@ -3057,19 +3251,19 @@ function OsobaCard({ osoba, role }) {
         React.createElement("div", { className: "flex items-start gap-2.5" },
             React.createElement("div", { className: "flex-1 min-w-0" },
                 React.createElement("div", { className: "flex items-center gap-2 flex-wrap" },
-                    React.createElement("span", { className: "text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full", style: { background: '#F3F3F3', color: '#888888' } }, role),
+                    React.createElement("span", { className: "text-[13px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full", style: { background: '#F3F3F3', color: '#888888' } }, role),
                     React.createElement("span", { className: "font-semibold text-[13px] text-ink" }, osoba.jmeno),
-                    osoba.typ === 'pravnicka' && (React.createElement("span", { className: "text-[10px] px-1.5 py-0.5 rounded font-semibold", style: { background: '#eff6ff', color: '#1d4ed8' } },
+                    osoba.typ === 'pravnicka' && (React.createElement("span", { className: "text-[13px] px-1.5 py-0.5 rounded font-semibold", style: { background: '#eff6ff', color: '#1d4ed8' } },
                         "PO \u00B7 I\u010CO: ",
                         osoba.ico))),
-                React.createElement("div", { className: "text-[11.5px] mt-1.5 font-mono", style: { color: '#888888' } },
+                React.createElement("div", { className: "text-[13px] mt-1.5 font-mono", style: { color: '#888888' } },
                     osoba.rc && React.createElement("span", null,
                         "R\u010C: ",
                         osoba.rc,
                         " \u00B7 "),
                     osoba.adresa))),
         osoba.zastupci && osoba.zastupci.length > 0 && (React.createElement("div", { className: "participant-representative mt-2.5 space-y-2" }, osoba.zastupci.map((z) => (React.createElement("div", { key: z.id, className: "flex items-start gap-2" },
-            React.createElement("span", { className: "text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full mt-0.5 shrink-0", style: {
+            React.createElement("span", { className: "text-[13px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full mt-0.5 shrink-0", style: {
                     background: z.typ === 'advokat'
                         ? '#eff6ff'
                         : z.typ === 'statutarni'
@@ -3082,8 +3276,8 @@ function OsobaCard({ osoba, role }) {
                             : '#92400e',
                 } }, z.typ === 'advokat' ? 'Advokát' : z.typ === 'statutarni' ? 'Stat. orgán' : 'Zmocněnec'),
             React.createElement("div", null,
-                React.createElement("div", { className: "text-[12.5px] font-medium text-ink" }, z.jmeno),
-                React.createElement("div", { className: "text-[11px]", style: { color: '#888888' } }, z.opravneni)))))))));
+                React.createElement("div", { className: "text-[13px] font-medium text-ink" }, z.jmeno),
+                React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } }, z.opravneni)))))))));
 }
 function DetailUschovy({ id, navigate }) {
     const [tab, setTab] = (0, react_1.useState)('pohyby');
@@ -3093,22 +3287,22 @@ function DetailUschovy({ id, navigate }) {
     const isFinished = ['ukoncena_vyplaceny', 'ukoncena_vraceny', 'zrusena', 'historicka'].includes(u.stav);
     return (React.createElement("div", { className: "min-h-full" },
         React.createElement("div", { className: "page-header px-8 pt-6 pb-5" },
-            React.createElement("button", { className: "text-[11.5px] mb-2 transition-colors", style: { color: '#888888' }, onMouseEnter: (e) => (e.currentTarget.style.color = '#2D2D2D'), onMouseLeave: (e) => (e.currentTarget.style.color = '#888888'), onClick: () => navigate('centrum') }, "\u2190 Centrum \u00FAschov"),
+            React.createElement("button", { className: "text-[13px] mb-2 transition-colors", style: { color: '#888888' }, onMouseEnter: (e) => (e.currentTarget.style.color = '#2D2D2D'), onMouseLeave: (e) => (e.currentTarget.style.color = '#888888'), onClick: () => navigate('centrum') }, "\u2190 Centrum \u00FAschov"),
             React.createElement("div", { className: "flex items-start justify-between gap-4" },
                 React.createElement("div", null,
                     React.createElement("div", { className: "flex items-center gap-3 flex-wrap" },
-                        React.createElement("span", { className: "font-mono text-[12px] font-semibold", style: { color: isDisconnected ? '#FF6250' : '#888888' } }, u.id),
-                        React.createElement("span", { className: "font-mono text-[11px]", style: { color: '#888888' } }, u.spis),
+                        React.createElement("span", { className: "font-mono text-[13px] font-semibold", style: { color: isDisconnected ? '#FF6250' : '#888888' } }, u.id),
+                        React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#888888' } }, u.spis),
                         React.createElement(StatusBadge_1.default, { stav: u.stav })),
                     React.createElement("h1", { className: "font-display text-[22px] text-ink mt-1.5", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, u.vec),
-                    React.createElement("p", { className: "text-[11.5px] mt-1", style: { color: '#888888' } },
+                    React.createElement("p", { className: "text-[13px] mt-1", style: { color: '#888888' } },
                         "Zodpov\u011Bdn\u00FD: ",
                         u.odpovAdvocat,
                         " \u00B7 Zalo\u017Eeno: ",
                         u.zalozeno,
                         " \u00B7 Upraveno: ",
                         u.upraven)),
-                React.createElement("div", { className: "flex items-center gap-2 mt-1 shrink-0" }, isFinished ? (React.createElement("span", { className: "text-[11.5px] px-3 py-1.5 rounded-full", style: { background: '#f1f5f9', color: '#64748b' } }, "Pouze pro \u010Dten\u00ED")) : !isDisconnected ? (React.createElement("button", { className: "btn btn-ghost text-[12.5px]" }, "Upravit")) : null))),
+                React.createElement("div", { className: "flex items-center gap-2 mt-1 shrink-0" }, isFinished ? (React.createElement("span", { className: "text-[13px] px-3 py-1.5 rounded-full", style: { background: '#f1f5f9', color: '#64748b' } }, "Pouze pro \u010Dten\u00ED")) : !isDisconnected ? (React.createElement("button", { className: "btn btn-ghost text-[13px]" }, "Upravit")) : null))),
         React.createElement("div", { className: "px-8 py-6" },
             isDisconnected && (React.createElement("div", { className: "rounded-xl px-6 py-5 mb-5", style: {
                     background: 'linear-gradient(135deg,#fef2f2,#fff5f5)',
@@ -3120,7 +3314,7 @@ function DetailUschovy({ id, navigate }) {
                     React.createElement("div", null,
                         React.createElement("div", { className: "font-bold text-red-800 text-[15px] mb-1.5" }, "Stav nezn\u00E1m\u00FD / rozpojen\u00FD \u2014 ru\u010Dn\u00ED z\u00E1sah nezbytn\u00FD"),
                         React.createElement("div", { className: "text-red-700 text-[13px] mb-2" }, u.chyba),
-                        React.createElement("div", { className: "text-red-600 text-[11.5px] leading-relaxed" },
+                        React.createElement("div", { className: "text-red-600 text-[13px] leading-relaxed" },
                             "Posledn\u00ED synchronizace: ",
                             u.posledniSync,
                             ". Praetor nem\u016F\u017Ee v automatick\u00E9m zpracov\u00E1n\u00ED pokra\u010Dovat. Ov\u011B\u0159te aktu\u00E1ln\u00ED stav p\u0159\u00EDmo v syst\u00E9mu \u010CAK a v bankovn\u00ED aplikaci. Po ru\u010Dn\u00ED oprav\u011B kontaktujte spr\u00E1vce syst\u00E9mu."))))),
@@ -3135,7 +3329,7 @@ function DetailUschovy({ id, navigate }) {
                         React.createElement("div", { className: "section-label" }, "Opr\u00E1vn\u011Bn\u00ED"),
                         u.opravneni.map((o, i) => (React.createElement(OsobaCard, { key: o.id, osoba: o, role: u.opravneni.length > 1 ? `Oprávněný ${i + 1}` : 'Oprávněný' })))),
                     u.poznamka && (React.createElement("div", { className: "card-flat px-4 py-3 text-[13px]", style: { color: '#555555' } },
-                        React.createElement("span", { className: "font-semibold text-[10.5px] uppercase tracking-wide", style: { color: '#888888' } },
+                        React.createElement("span", { className: "font-semibold text-[13px] uppercase tracking-wide", style: { color: '#888888' } },
                             "Pozn\u00E1mka \u00B7",
                             ' '),
                         u.poznamka))),
@@ -3144,10 +3338,10 @@ function DetailUschovy({ id, navigate }) {
                         React.createElement("div", { className: "info-panel-title" }, "Bankovn\u00ED \u00FA\u010Det"),
                         ucet ? (React.createElement(React.Fragment, null,
                             React.createElement("div", { className: "font-mono text-[14px] font-semibold text-ink" }, ucet.cislo),
-                            React.createElement("div", { className: "text-[11.5px] mb-3", style: { color: '#888888' } }, ucet.banka),
-                            React.createElement("div", { className: "text-[10.5px] uppercase tracking-wide mb-0.5", style: { color: '#888888' } }, "Z\u016Fstatek"),
+                            React.createElement("div", { className: "text-[13px] mb-3", style: { color: '#888888' } }, ucet.banka),
+                            React.createElement("div", { className: "text-[13px] uppercase tracking-wide mb-0.5", style: { color: '#888888' } }, "Z\u016Fstatek"),
                             React.createElement("div", { className: "font-mono text-[22px] font-bold leading-tight", style: { color: ucet.zustatek > 0 ? '#005f4e' : '#888888' } }, (0, mockData_1.formatCastka)(ucet.zustatek)),
-                            React.createElement("div", { className: "text-[10px] font-mono mt-1.5", style: { color: '#888888' } },
+                            React.createElement("div", { className: "text-[13px] font-mono mt-1.5", style: { color: '#888888' } },
                                 "Sync: ",
                                 ucet.posledniSync))) : (React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } }, isDisconnected ? 'Účet nelze zobrazit' : 'Žádný účet přiřazen'))),
                     React.createElement("div", { className: "info-panel" },
@@ -3156,17 +3350,17 @@ function DetailUschovy({ id, navigate }) {
                             React.createElement("div", { className: "flex items-center gap-2 mb-2" },
                                 React.createElement("span", { style: { color: '#10b981', fontSize: 15 } }, "\u2713"),
                                 React.createElement("span", { className: "font-semibold text-[13px] text-ink" }, "Nahl\u00E1\u0161eno")),
-                            React.createElement("div", { className: "font-mono text-[11px]", style: { color: '#888888' } }, u.hlaseniCAK.evidCislo),
-                            React.createElement("div", { className: "text-[11px]", style: { color: '#888888' } },
+                            React.createElement("div", { className: "font-mono text-[13px]", style: { color: '#888888' } }, u.hlaseniCAK.evidCislo),
+                            React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } },
                                 u.hlaseniCAK.datum,
                                 " v ",
                                 u.hlaseniCAK.cas),
-                            React.createElement("div", { className: "text-[11px]", style: { color: '#888888' } }, u.hlaseniCAK.uzivatel))) : u.stav === 'pripravena' ? (React.createElement(React.Fragment, null,
+                            React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } }, u.hlaseniCAK.uzivatel))) : u.stav === 'pripravena' ? (React.createElement(React.Fragment, null,
                             React.createElement("div", { className: "flex items-center gap-2 mb-2" },
                                 React.createElement("span", { style: { color: '#f59e0b' } }, "\u25CB"),
                                 React.createElement("span", { className: "text-[13px]", style: { color: '#555555' } }, "Nenahl\u00E1\u0161eno")),
-                            React.createElement("button", { onClick: () => navigate('hlaseni-cak', u.id), disabled: !!u.chyba, className: "text-[12px] font-semibold underline disabled:opacity-40 disabled:cursor-not-allowed", style: { color: '#1d4ed8' } }, "Spustit hl\u00E1\u0161en\u00ED \u2192"),
-                            u.chyba && (React.createElement("div", { className: "text-[11px] text-amber-700 mt-1.5" },
+                            React.createElement("button", { onClick: () => navigate('hlaseni-cak', u.id), disabled: !!u.chyba, className: "text-[13px] font-semibold underline disabled:opacity-40 disabled:cursor-not-allowed", style: { color: '#1d4ed8' } }, "Spustit hl\u00E1\u0161en\u00ED \u2192"),
+                            u.chyba && (React.createElement("div", { className: "text-[13px] text-amber-700 mt-1.5" },
                                 "\u26A0 ",
                                 u.chyba)))) : (React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } }, "Nenahl\u00E1\u0161eno"))),
                     React.createElement("div", { className: "info-panel" },
@@ -3175,14 +3369,14 @@ function DetailUschovy({ id, navigate }) {
                             React.createElement("div", { className: "flex items-center gap-2 mb-2" },
                                 React.createElement("span", { style: { color: '#10b981', fontSize: 15 } }, "\u2713"),
                                 React.createElement("span", { className: "font-semibold text-[13px] text-ink" }, "Nahl\u00E1\u0161eno")),
-                            React.createElement("div", { className: "font-mono text-[11px]", style: { color: '#888888' } }, u.hlaseniBANKA.evidCislo),
-                            React.createElement("div", { className: "text-[11px]", style: { color: '#888888' } },
+                            React.createElement("div", { className: "font-mono text-[13px]", style: { color: '#888888' } }, u.hlaseniBANKA.evidCislo),
+                            React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } },
                                 u.hlaseniBANKA.banka,
                                 " \u00B7 ",
                                 u.hlaseniBANKA.datum))) : (React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } }, "Nenahl\u00E1\u0161eno"))),
                     React.createElement("div", { className: "info-panel" },
                         React.createElement("div", { className: "info-panel-title" }, "Sjednan\u00E9 \u010D\u00E1stky"),
-                        React.createElement("div", { className: "text-[10.5px] uppercase tracking-wide mb-1", style: { color: '#888888' } }, "Celkov\u00E1 \u010D\u00E1stka \u00FAschovy"),
+                        React.createElement("div", { className: "text-[13px] uppercase tracking-wide mb-1", style: { color: '#888888' } }, "Celkov\u00E1 \u010D\u00E1stka \u00FAschovy"),
                         React.createElement("div", { className: "font-mono text-[17px] font-bold text-ink" }, (0, mockData_1.formatCastka)(u.castka))))),
             React.createElement("div", { className: "card overflow-hidden" },
                 React.createElement("div", { className: "flex border-b", style: { borderColor: '#E0E0E0', background: '#F9F9F9' } }, ['pohyby', 'audit'].map((t) => (React.createElement("button", { key: t, onClick: () => setTab(t), className: "px-5 py-3 text-[13px] transition-colors", style: {
@@ -3202,15 +3396,15 @@ function DetailUschovy({ id, navigate }) {
                                 React.createElement("th", null, "VS"),
                                 React.createElement("th", { style: { textAlign: 'right' } }, "\u010C\u00E1stka"))),
                         React.createElement("tbody", null, u.pohyby.map((p) => (React.createElement("tr", { key: p.id, style: { cursor: 'default' } },
-                            React.createElement("td", { className: "font-mono text-[11.5px]", style: { color: '#555555' } }, p.datum),
+                            React.createElement("td", { className: "font-mono text-[13px]", style: { color: '#555555' } }, p.datum),
                             React.createElement("td", null,
-                                React.createElement("span", { className: "text-[11.5px] px-2.5 py-1 rounded-full font-semibold", style: {
+                                React.createElement("span", { className: "text-[13px] px-2.5 py-1 rounded-full font-semibold", style: {
                                         background: p.typ === 'prijem' ? '#ecfdf5' : p.typ === 'vydej' ? '#eff6ff' : '#fef9ed',
                                         color: p.typ === 'prijem' ? '#005f4e' : p.typ === 'vydej' ? '#1d4ed8' : '#92400e',
                                     } }, p.typ === 'prijem' ? 'Příjem' : p.typ === 'vydej' ? 'Výdej' : 'Vrácení')),
                             React.createElement("td", { className: "text-[13px] text-ink" }, p.popis),
-                            React.createElement("td", { className: "font-mono text-[11px]", style: { color: '#888888' } }, p.protiucet ?? '–'),
-                            React.createElement("td", { className: "font-mono text-[11px]", style: { color: '#888888' } }, p.vs ?? '–'),
+                            React.createElement("td", { className: "font-mono text-[13px]", style: { color: '#888888' } }, p.protiucet ?? '–'),
+                            React.createElement("td", { className: "font-mono text-[13px]", style: { color: '#888888' } }, p.vs ?? '–'),
                             React.createElement("td", { style: {
                                     textAlign: 'right',
                                     fontFamily: "'JetBrains Mono', monospace",
@@ -3233,7 +3427,7 @@ function DetailUschovy({ id, navigate }) {
                         : []),
                     { cas: u.zalozeno + ' 00:00', kdo: u.odpovAdvocat, co: 'Úschova založena' },
                 ].map((item, i) => (React.createElement("div", { key: i, className: "flex gap-4 items-start text-[13px]" },
-                    React.createElement("div", { className: "font-mono text-[11px] w-40 shrink-0 pt-0.5", style: { color: '#888888' } }, item.cas),
+                    React.createElement("div", { className: "font-mono text-[13px] w-40 shrink-0 pt-0.5", style: { color: '#888888' } }, item.cas),
                     React.createElement("div", { className: "flex-1" },
                         React.createElement("span", { className: "text-ink" }, item.co),
                         React.createElement("span", { style: { color: '#888888' } },
@@ -3302,19 +3496,19 @@ function HlaseniCAK({ id, navigate }) {
     function FieldRow({ label, field, type = 'text', readOnly, }) {
         const changed = changedFields.has(field);
         return (React.createElement("div", { className: "flex items-start gap-4 py-2.5 border-b", style: { borderColor: '#f0ede6' } },
-            React.createElement("div", { className: "w-44 shrink-0 text-[12px] pt-2 leading-snug", style: { color: '#888888' } }, label),
+            React.createElement("div", { className: "w-44 shrink-0 text-[13px] pt-2 leading-snug", style: { color: '#888888' } }, label),
             React.createElement("div", { className: "flex-1 relative" },
                 React.createElement("input", { type: type, value: formData[field], readOnly: readOnly, onChange: (e) => !readOnly && handleChange(field, e.target.value), className: "field-input", style: {
                         borderColor: changed ? '#f59e0b' : undefined,
                         background: readOnly ? '#F9F9F9' : changed ? '#fffbeb' : undefined,
                     } }),
-                changed && (React.createElement("span", { className: "absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-semibold px-1.5 py-0.5 rounded pointer-events-none", style: { background: '#fef3d4', color: '#92400e' } }, "Upraveno ru\u010Dn\u011B")))));
+                changed && (React.createElement("span", { className: "absolute right-2.5 top-1/2 -translate-y-1/2 text-[13px] font-semibold px-1.5 py-0.5 rounded pointer-events-none", style: { background: '#fef3d4', color: '#92400e' } }, "Upraveno ru\u010Dn\u011B")))));
     }
     return (React.createElement("div", { className: "min-h-full" },
         React.createElement("div", { className: "page-header px-8 pt-6 pb-5" },
-            React.createElement("button", { className: "text-[11.5px] mb-2 transition-colors", style: { color: '#888888' }, onMouseEnter: (e) => (e.currentTarget.style.color = '#2D2D2D'), onMouseLeave: (e) => (e.currentTarget.style.color = '#888888'), onClick: () => navigate('detail', id) }, "\u2190 Detail \u00FAschovy"),
+            React.createElement("button", { className: "text-[13px] mb-2 transition-colors", style: { color: '#888888' }, onMouseEnter: (e) => (e.currentTarget.style.color = '#2D2D2D'), onMouseLeave: (e) => (e.currentTarget.style.color = '#888888'), onClick: () => navigate('detail', id) }, "\u2190 Detail \u00FAschovy"),
             React.createElement("h1", { className: "font-display text-[24px] text-ink", style: { fontStyle: 'italic', fontWeight: 300 } }, "Hl\u00E1\u0161en\u00ED \u010CAK"),
-            React.createElement("p", { className: "text-[12px] mt-0.5 font-mono", style: { color: '#888888' } },
+            React.createElement("p", { className: "text-[13px] mt-0.5 font-mono", style: { color: '#888888' } },
                 u.id,
                 " \u00B7 ",
                 u.vec)),
@@ -3327,7 +3521,7 @@ function HlaseniCAK({ id, navigate }) {
                         color: done ? '#fff' : active ? '#2D2D2D' : '#888888',
                         boxShadow: active ? '0 2px 8px rgba(196,154,56,0.35)' : undefined,
                     } }, done ? '✓' : i + 1),
-                React.createElement("span", { className: "ml-2 text-[12.5px] font-medium", style: { color: active ? '#2D2D2D' : done ? '#555555' : '#888888' } }, s.label),
+                React.createElement("span", { className: "ml-2 text-[13px] font-medium", style: { color: active ? '#2D2D2D' : done ? '#555555' : '#888888' } }, s.label),
                 i < WIZARD_STEPS.length - 1 && (React.createElement("div", { className: `wizard-connector${done ? ' done' : ''}` }))));
         })),
         React.createElement("div", { className: "px-8 py-6 max-w-3xl" },
@@ -3339,7 +3533,7 @@ function HlaseniCAK({ id, navigate }) {
                         ' ',
                         "Data jsou p\u0159edvypln\u011Bna ze spisu. Pole ozna\u010Den\u00E1",
                         ' ',
-                        React.createElement("span", { className: "px-1.5 py-0.5 rounded text-[10px] font-semibold", style: { background: '#fef3d4', color: '#92400e' } }, "Upraveno ru\u010Dn\u011B"),
+                        React.createElement("span", { className: "px-1.5 py-0.5 rounded text-[13px] font-semibold", style: { background: '#fef3d4', color: '#92400e' } }, "Upraveno ru\u010Dn\u011B"),
                         ' ',
                         "budou zaznamen\u00E1na v auditu.")),
                 React.createElement("div", { className: "card p-6" },
@@ -3364,7 +3558,7 @@ function HlaseniCAK({ id, navigate }) {
                     React.createElement(FieldRow, { label: "Banka", field: "banka", readOnly: true })),
                 changedFields.size > 0 && (React.createElement("div", { className: "alert alert-warning mt-3" },
                     React.createElement("span", { className: "alert-icon", style: { color: '#d97706' } }, "!"),
-                    React.createElement("p", { className: "text-amber-800 text-[12.5px]" },
+                    React.createElement("p", { className: "text-amber-800 text-[13px]" },
                         React.createElement("span", { className: "font-semibold" }, "Upozorn\u011Bn\u00ED:"),
                         ' ',
                         changedFields.size === 1 ? '1 pole bylo' : `${changedFields.size} polí bylo`,
@@ -3377,11 +3571,11 @@ function HlaseniCAK({ id, navigate }) {
                     React.createElement("span", { className: "alert-icon", style: { color: '#d97706' } }, "!"),
                     React.createElement("div", null,
                         React.createElement("p", { className: "font-semibold text-amber-800 text-[13px]" }, "Toto jsou p\u0159esn\u00E1 data, kter\u00E1 budou odesl\u00E1na do \u010CAK."),
-                        React.createElement("p", { className: "text-amber-700 text-[12px] mt-0.5" }, "Po odesl\u00E1n\u00ED bude ulo\u017Eena nem\u011Bnn\u00E1 kopie t\u011Bchto dat spolu s eviden\u010Dn\u00EDm \u010D\u00EDslem, datem, \u010Dasem a jm\u00E9nem odes\u00EDlatele."))),
+                        React.createElement("p", { className: "text-amber-700 text-[13px] mt-0.5" }, "Po odesl\u00E1n\u00ED bude ulo\u017Eena nem\u011Bnn\u00E1 kopie t\u011Bchto dat spolu s eviden\u010Dn\u00EDm \u010D\u00EDslem, datem, \u010Dasem a jm\u00E9nem odes\u00EDlatele."))),
                 React.createElement("div", { className: "card overflow-hidden mb-5" },
                     React.createElement("div", { className: "px-5 py-3 border-b", style: { borderColor: '#E0E0E0', background: '#F9F9F9' } },
                         React.createElement("p", { className: "section-label mb-0" }, "Data k odesl\u00E1n\u00ED do \u010CAK")),
-                    React.createElement("div", { className: "p-5 font-mono text-[11.5px] space-y-1.5 leading-relaxed" }, Object.entries(formData).map(([key, val]) => {
+                    React.createElement("div", { className: "p-5 font-mono text-[13px] space-y-1.5 leading-relaxed" }, Object.entries(formData).map(([key, val]) => {
                         const changed = changedFields.has(key);
                         return (React.createElement("div", { key: key, className: "flex gap-3" },
                             React.createElement("span", { className: "w-40 shrink-0", style: { color: '#888888' } },
@@ -3396,11 +3590,11 @@ function HlaseniCAK({ id, navigate }) {
                                     }
                                     : { color: '#2D2D2D' } },
                                 val,
-                                changed && (React.createElement("span", { className: "ml-2 text-[10px] font-normal", style: { color: '#d97706' } }, "[ru\u010Dn\u011B upraveno]")))));
+                                changed && (React.createElement("span", { className: "ml-2 text-[13px] font-normal", style: { color: '#d97706' } }, "[ru\u010Dn\u011B upraveno]")))));
                     }))),
                 React.createElement("div", { className: "alert alert-success mb-5" },
                     React.createElement("span", { className: "alert-icon", style: { color: '#059669' } }, "\u2713"),
-                    React.createElement("p", { className: "text-emerald-800 text-[12.5px]" },
+                    React.createElement("p", { className: "text-emerald-800 text-[13px]" },
                         React.createElement("span", { className: "font-semibold" }, "Po odesl\u00E1n\u00ED obdr\u017E\u00EDte"),
                         " eviden\u010Dn\u00ED \u010D\u00EDslo \u010CAK, datum a \u010Das p\u0159ijet\u00ED. Tyto informace budou automaticky ulo\u017Eeny do z\u00E1znamu \u00FAschovy.")),
                 React.createElement("div", { className: "flex justify-between gap-3" },
@@ -3426,9 +3620,9 @@ function HlaseniCAK({ id, navigate }) {
                             border: '1px solid #a7f3d0',
                             boxShadow: '0 2px 8px rgba(16,185,129,0.08)',
                         } },
-                        React.createElement("div", { className: "text-[10.5px] uppercase tracking-widest font-semibold mb-1.5", style: { color: '#059669' } }, "Eviden\u010Dn\u00ED \u010D\u00EDslo \u010CAK"),
+                        React.createElement("div", { className: "text-[13px] uppercase tracking-widest font-semibold mb-1.5", style: { color: '#059669' } }, "Eviden\u010Dn\u00ED \u010D\u00EDslo \u010CAK"),
                         React.createElement("div", { className: "font-mono text-[22px] font-bold text-emerald-800" }, evidCislo),
-                        React.createElement("div", { className: "text-[11px] font-mono mt-1.5", style: { color: '#059669' } },
+                        React.createElement("div", { className: "text-[13px] font-mono mt-1.5", style: { color: '#059669' } },
                             "02.09.2026 \u00B7 ",
                             new Date().toLocaleTimeString('cs-CZ'),
                             " \u00B7 JUDr. Pavel Kr\u00E1tk\u00FD")),
@@ -3498,13 +3692,13 @@ function NastaveniCAK({ navigate: _navigate }) {
     return (React.createElement("div", { className: "min-h-full" },
         React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
             React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "Nastaven\u00ED \u010CAK"),
-            React.createElement("p", { className: "text-[12px] mt-0.5", style: { color: '#888888' } }, "P\u0159\u00EDstupy advok\u00E1t\u016F, tokeny a synchronizace s \u010Ceskou advok\u00E1tn\u00ED komorou")),
+            React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, "P\u0159\u00EDstupy advok\u00E1t\u016F, tokeny a synchronizace s \u010Ceskou advok\u00E1tn\u00ED komorou")),
         React.createElement("div", { className: "px-8 py-6 max-w-3xl space-y-6" },
             hasExpired && (React.createElement("div", { className: "alert alert-critical" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#FF6250' } }, "\u26A0"),
                 React.createElement("div", null,
                     React.createElement("p", { className: "font-semibold text-red-800 text-[13px]" }, "Vypr\u0161el\u00FD token blokuje hl\u00E1\u0161en\u00ED \u010CAK."),
-                    React.createElement("p", { className: "text-red-700 text-[12.5px] mt-0.5" }, "Jeden nebo v\u00EDce advok\u00E1t\u016F nem\u00E1 platn\u00FD p\u0159\u00EDstupov\u00FD token. \u00DAschovy p\u0159i\u0159azen\u00E9 t\u011Bmto advok\u00E1t\u016Fm nelze nahl\u00E1sit ani synchronizovat.")))),
+                    React.createElement("p", { className: "text-red-700 text-[13px] mt-0.5" }, "Jeden nebo v\u00EDce advok\u00E1t\u016F nem\u00E1 platn\u00FD p\u0159\u00EDstupov\u00FD token. \u00DAschovy p\u0159i\u0159azen\u00E9 t\u011Bmto advok\u00E1t\u016Fm nelze nahl\u00E1sit ani synchronizovat.")))),
             !hasExpired && soonExpiring && (React.createElement("div", { className: "alert alert-warning" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#d97706' } }, "!"),
                 React.createElement("p", { className: "text-amber-800 text-[13px]" },
@@ -3529,13 +3723,13 @@ function NastaveniCAK({ navigate: _navigate }) {
                                 React.createElement("td", null,
                                     React.createElement("div", { className: "font-medium text-[13px] text-ink" }, adv.jmeno)),
                                 React.createElement("td", null,
-                                    React.createElement("span", { className: "font-mono text-[12px]", style: { color: '#555555' } }, adv.cak)),
+                                    React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#555555' } }, adv.cak)),
                                 React.createElement("td", null,
                                     React.createElement("span", { className: "status-badge", style: { background: cfg.bg, color: cfg.text } },
                                         React.createElement("span", { className: "status-dot", style: { background: cfg.dot } }),
                                         cfg.label)),
                                 React.createElement("td", null,
-                                    React.createElement("span", { className: "font-mono text-[12px]", style: {
+                                    React.createElement("span", { className: "font-mono text-[13px]", style: {
                                             color: adv.token === 'vyprsely'
                                                 ? '#FF6250'
                                                 : adv.token === 'vyprsi'
@@ -3543,8 +3737,8 @@ function NastaveniCAK({ navigate: _navigate }) {
                                                     : '#888888',
                                         } }, adv.expirace ?? '–')),
                                 React.createElement("td", null,
-                                    React.createElement("span", { className: "font-mono text-[11.5px]", style: { color: '#888888' } }, adv.posledniPouziti ?? '–')),
-                                React.createElement("td", null, (adv.token === 'vyprsely' || adv.token === 'vyprsi') && (React.createElement("button", { onClick: () => handleRenew(adv.id), disabled: renewingId === adv.id, className: "btn text-[12px]", style: {
+                                    React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#888888' } }, adv.posledniPouziti ?? '–')),
+                                React.createElement("td", null, (adv.token === 'vyprsely' || adv.token === 'vyprsi') && (React.createElement("button", { onClick: () => handleRenew(adv.id), disabled: renewingId === adv.id, className: "btn text-[13px]", style: {
                                         padding: '5px 12px',
                                         background: isError ? '#fef2f2' : '#fffbeb',
                                         color: isError ? '#991b1b' : '#b45309',
@@ -3569,10 +3763,10 @@ function NastaveniCAK({ navigate: _navigate }) {
                         React.createElement("span", { className: "text-[13px]", style: { color: '#555555' } }, k),
                         React.createElement("span", { className: "text-[13px] font-semibold text-ink" }, v)))),
                     React.createElement("div", { className: "pt-1" },
-                        React.createElement("button", { className: "text-[12px] font-medium underline", style: { color: '#555555' } }, "Upravit nastaven\u00ED synchronizace")))),
+                        React.createElement("button", { className: "text-[13px] font-medium underline", style: { color: '#555555' } }, "Upravit nastaven\u00ED synchronizace")))),
             React.createElement("div", { className: "rounded-xl px-5 py-4", style: { background: '#F9F9F9', border: '1px solid #E8E8E8' } },
-                React.createElement("p", { className: "font-semibold text-[12.5px] text-ink mb-1.5" }, "O \u010CAK p\u0159\u00EDstupech"),
-                React.createElement("p", { className: "text-[12px] leading-relaxed", style: { color: '#888888' } }, "Ka\u017Ed\u00FD advok\u00E1t m\u00E1 vlastn\u00ED p\u0159\u00EDstupov\u00FD token v\u00E1zan\u00FD na jeho \u010D\u00EDslo \u010CAK. Tokeny jsou ud\u011Bleny prost\u0159ednictv\u00EDm port\u00E1lu \u010CAK a maj\u00ED omezenou platnost. Praetor upozorn\u00ED na bl\u00ED\u017E\u00EDc\u00ED se expiraci. Bez platn\u00E9ho tokenu nelze odeslat hl\u00E1\u0161en\u00ED do \u010CAK ani na\u010D\u00EDtat aktu\u00E1ln\u00ED stav \u00FAschov z registru.")))));
+                React.createElement("p", { className: "font-semibold text-[13px] text-ink mb-1.5" }, "O \u010CAK p\u0159\u00EDstupech"),
+                React.createElement("p", { className: "text-[13px] leading-relaxed", style: { color: '#888888' } }, "Ka\u017Ed\u00FD advok\u00E1t m\u00E1 vlastn\u00ED p\u0159\u00EDstupov\u00FD token v\u00E1zan\u00FD na jeho \u010D\u00EDslo \u010CAK. Tokeny jsou ud\u011Bleny prost\u0159ednictv\u00EDm port\u00E1lu \u010CAK a maj\u00ED omezenou platnost. Praetor upozorn\u00ED na bl\u00ED\u017E\u00EDc\u00ED se expiraci. Bez platn\u00E9ho tokenu nelze odeslat hl\u00E1\u0161en\u00ED do \u010CAK ani na\u010D\u00EDtat aktu\u00E1ln\u00ED stav \u00FAschov z registru.")))));
 }
 
 };
@@ -3604,20 +3798,20 @@ function UcetCard({ ucet }) {
         React.createElement("div", { className: "flex items-start justify-between gap-3 mb-3" },
             React.createElement("div", null,
                 React.createElement("div", { className: "font-mono text-[13.5px] font-semibold text-ink" }, ucet.cislo),
-                React.createElement("div", { className: "text-[11.5px] mt-0.5", style: { color: '#888888' } }, ucet.banka)),
+                React.createElement("div", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, ucet.banka)),
             React.createElement("span", { className: "status-badge shrink-0", style: { background: cfg.bg, color: cfg.text } },
                 React.createElement("span", { className: "status-dot", style: { background: cfg.dot } }),
                 cfg.label)),
-        ucet.stav === 'prirazen' && ucet.prirazenaUschovaId && (React.createElement("div", { className: "rounded-lg px-3 py-2 mb-3 text-[12px]", style: { background: '#eff6ff', border: '1px solid #bfdbfe' } },
-            React.createElement("div", { className: "font-mono font-semibold text-blue-800 text-[11px]" }, ucet.prirazenaUschovaId),
-            React.createElement("div", { className: "text-blue-700 text-[11.5px] mt-0.5 leading-snug" }, ucet.prirazenaUschovaVec))),
-        isError && ucet.chyba && (React.createElement("div", { className: "rounded-lg px-3 py-2 mb-3 text-[11.5px]", style: { background: '#fef2f2', border: '1px solid #fca5a5', color: '#991b1b' } }, ucet.chyba)),
+        ucet.stav === 'prirazen' && ucet.prirazenaUschovaId && (React.createElement("div", { className: "rounded-lg px-3 py-2 mb-3 text-[13px]", style: { background: '#eff6ff', border: '1px solid #bfdbfe' } },
+            React.createElement("div", { className: "font-mono font-semibold text-blue-800 text-[13px]" }, ucet.prirazenaUschovaId),
+            React.createElement("div", { className: "text-blue-700 text-[13px] mt-0.5 leading-snug" }, ucet.prirazenaUschovaVec))),
+        isError && ucet.chyba && (React.createElement("div", { className: "rounded-lg px-3 py-2 mb-3 text-[13px]", style: { background: '#fef2f2', border: '1px solid #fca5a5', color: '#991b1b' } }, ucet.chyba)),
         React.createElement("div", { className: "flex items-end justify-between gap-2 pt-1" },
             React.createElement("div", null,
-                React.createElement("div", { className: "text-[10px] uppercase tracking-wide font-semibold mb-0.5", style: { color: '#888888' } }, "Z\u016Fstatek"),
+                React.createElement("div", { className: "text-[13px] uppercase tracking-wide font-semibold mb-0.5", style: { color: '#888888' } }, "Z\u016Fstatek"),
                 React.createElement("div", { className: "font-mono text-[14px] font-semibold", style: { color: ucet.zustatek > 0 ? '#005f4e' : '#888888' } }, (0, mockData_1.formatCastka)(ucet.zustatek))),
             React.createElement("div", { className: "text-right" },
-                React.createElement("div", { className: "text-[10px] font-mono", style: { color: '#888888' } },
+                React.createElement("div", { className: "text-[13px] font-mono", style: { color: '#888888' } },
                     "Sync: ",
                     ucet.posledniSync)))));
 }
@@ -3625,7 +3819,7 @@ function PrehledUctu({ navigate: _navigate }) {
     return (React.createElement("div", { className: "min-h-full" },
         React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
             React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "P\u0159ehled \u00FA\u010Dt\u016F"),
-            React.createElement("p", { className: "text-[12px] mt-0.5", style: { color: '#888888' } },
+            React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } },
                 mockData_1.MOCK_UCTY.length,
                 " registrovan\u00FDch \u00FA\u010Dt\u016F \u00B7",
                 ' ',
@@ -3642,11 +3836,11 @@ function PrehledUctu({ navigate: _navigate }) {
                 return (React.createElement("div", { key: group.title },
                     React.createElement("div", { className: "mb-3" },
                         React.createElement("h2", { className: "font-semibold text-[14px] text-ink" }, group.title),
-                        React.createElement("p", { className: "text-[12px]", style: { color: '#888888' } }, group.sub)),
+                        React.createElement("p", { className: "text-[13px]", style: { color: '#888888' } }, group.sub)),
                     React.createElement("div", { className: "grid grid-cols-2 gap-3 xl:grid-cols-3" }, ucty.map((u) => (React.createElement(UcetCard, { key: u.id, ucet: u }))))));
             }),
-            React.createElement("div", { className: "rounded-xl px-5 py-4 text-[12.5px]", style: { background: '#F9F9F9', border: '1px solid #E8E8E8' } },
-                React.createElement("p", { className: "font-semibold text-ink text-[12px] mb-1" }, "Pravidlo: 1 \u00FA\u010Det = 1 aktivn\u00ED \u00FAschova"),
+            React.createElement("div", { className: "rounded-xl px-5 py-4 text-[13px]", style: { background: '#F9F9F9', border: '1px solid #E8E8E8' } },
+                React.createElement("p", { className: "font-semibold text-ink text-[13px] mb-1" }, "Pravidlo: 1 \u00FA\u010Det = 1 aktivn\u00ED \u00FAschova"),
                 React.createElement("p", { style: { color: '#888888' } }, "Jeden bankovn\u00ED \u00FAschovn\u00ED \u00FA\u010Det nelze p\u0159i\u0159adit dv\u011Bma aktivn\u00EDm \u00FAschovima sou\u010Dasn\u011B. P\u0159i zakl\u00E1d\u00E1n\u00ED nov\u00E9 \u00FAschovy se zobrazuj\u00ED pouze voln\u00E9 \u00FA\u010Dty. Obsazen\u00E9 \u00FA\u010Dty se zobraz\u00ED jako nedostupn\u00E9.")))));
 }
 
@@ -3725,7 +3919,7 @@ function Sidebar({ current, navigate }) {
     return (React.createElement("aside", { className: "praetor-sidebar w-56 shrink-0 flex flex-col h-full" },
         React.createElement("div", { className: "praetor-sidebar-logo px-5 py-5" },
             React.createElement("div", { className: "font-display text-[23px] tracking-wide", style: { color: '#F7D684', fontStyle: 'italic', fontWeight: 300, letterSpacing: '0.03em' } }, "Praetor"),
-            React.createElement("div", { className: "text-[9.5px] font-mono tracking-[0.18em] uppercase mt-0.5", style: { color: 'rgba(255,255,255,0.28)' } }, "Advok\u00E1tn\u00ED \u00FAschovy")),
+            React.createElement("div", { className: "text-[13px] font-mono tracking-[0.18em] uppercase mt-0.5", style: { color: 'rgba(255,255,255,0.28)' } }, "Advok\u00E1tn\u00ED \u00FAschovy")),
         React.createElement("nav", { className: "flex-1 py-4 overflow-y-auto" }, GROUPS.map((group) => {
             const GroupIcon = GROUP_ICONS[group.label];
             return (React.createElement("div", { key: group.label, className: "mb-5" },
@@ -3747,7 +3941,7 @@ function Sidebar({ current, navigate }) {
                                         color: active ? '#ffffff' : 'rgba(255,255,255,0.55)',
                                         transition: 'color 0.15s',
                                     } }, item.label),
-                                React.createElement("div", { className: "text-[10px] mt-0.5 truncate", style: {
+                                React.createElement("div", { className: "text-[13px] mt-0.5 truncate", style: {
                                         color: active ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.28)',
                                         transition: 'color 0.15s',
                                     } }, item.sub)))));
@@ -3757,14 +3951,14 @@ function Sidebar({ current, navigate }) {
             React.createElement("div", { style: { fontSize: 10, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 500 } }, "Wireframes \u2197")),
         React.createElement("div", { className: "px-5 py-4", style: { borderTop: '1px solid rgba(255,255,255,0.06)' } },
             React.createElement("div", { className: "flex items-center gap-3" },
-                React.createElement("div", { className: "w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold font-mono shrink-0", style: {
+                React.createElement("div", { className: "w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-bold font-mono shrink-0", style: {
                         background: 'linear-gradient(135deg, #009379, #006b58)',
                         color: '#fff',
                         boxShadow: '0 2px 6px rgba(0,0,0,0.25)',
                     } }, "PK"),
                 React.createElement("div", null,
-                    React.createElement("div", { className: "text-[12px] font-semibold", style: { color: 'rgba(255,255,255,0.82)' } }, "JUDr. Pavel Kr\u00E1tk\u00FD"),
-                    React.createElement("div", { className: "text-[10px]", style: { color: 'rgba(255,255,255,0.28)' } }, "Advok\u00E1t \u00B7 \u010CAK 12345"))))));
+                    React.createElement("div", { className: "text-[13px] font-semibold", style: { color: 'rgba(255,255,255,0.82)' } }, "JUDr. Pavel Kr\u00E1tk\u00FD"),
+                    React.createElement("div", { className: "text-[13px]", style: { color: 'rgba(255,255,255,0.28)' } }, "Advok\u00E1t \u00B7 \u010CAK 12345"))))));
 }
 
 };
