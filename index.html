@@ -2137,6 +2137,55 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="new-escrow-flow-styles">
+.app-main .new-flow-wrap{max-width:1080px;margin:0 auto}
+.app-main .new-flow-back{display:inline-flex;align-items:center;min-height:2.25rem;margin-bottom:.75rem;color:#53606d;font-size:.9375rem;font-weight:650}
+.app-main .new-flow-back:hover{color:var(--accent,#087f6d)}
+.app-main .new-flow-eyebrow{margin-bottom:.35rem;color:#66717d;font-size:.875rem;font-weight:720;letter-spacing:.04em}
+.app-main .new-flow-progress{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:1.25rem}
+.app-main .new-flow-step{display:flex;align-items:center;gap:.65rem;min-width:0;padding:.7rem .8rem;border:1px solid #dde3e8;border-radius:.8rem;background:#fff;color:#68737e;font-size:.875rem;font-weight:650}
+.app-main .new-flow-step-dot{display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;flex:0 0 1.75rem;border-radius:.55rem;background:#eef1f4;color:#59636e;font-size:.8125rem;font-weight:760}
+.app-main .new-flow-step.active{border-color:rgba(8,127,109,.28);background:#f7fbfa;color:#23302e}
+.app-main .new-flow-step.active .new-flow-step-dot,.app-main .new-flow-step.done .new-flow-step-dot{background:#087f6d;color:#fff}
+.app-main .new-flow-step.done{color:#42514e}
+.app-main .new-flow-card{padding:1.6rem;border:1px solid #dce2e7;border-radius:1.15rem;background:#fff;box-shadow:none}
+.app-main .new-flow-section-head{margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1px solid #e7eaee}
+.app-main .new-flow-section-head h2{margin:0 0 .3rem;font-size:1.25rem!important;color:#1f2730}
+.app-main .new-flow-section-head p{margin:0;color:#58636f;font-size:.9375rem;line-height:1.55}
+.app-main .new-flow-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem}
+.app-main .new-flow-grid .span-2{grid-column:span 2}
+.app-main .new-flow-field{display:flex;flex-direction:column;gap:.45rem;color:#333d47;font-size:.9375rem;font-weight:660}
+.app-main .new-flow-field input,.app-main .new-flow-field select,.app-main .new-flow-field textarea{width:100%;min-height:2.9rem;padding:.72rem .85rem;border:1px solid #cfd6dd;border-radius:.72rem;background:#fff;color:#202830;font:inherit;font-size:1rem!important;outline:none;transition:border-color .15s ease,box-shadow .15s ease,background .15s ease}
+.app-main .new-flow-field textarea{min-height:7rem;resize:vertical}
+.app-main .new-flow-field input::placeholder,.app-main .new-flow-field textarea::placeholder{color:#7c8792}
+.app-main .new-flow-field input:focus,.app-main .new-flow-field select:focus,.app-main .new-flow-field textarea:focus{border-color:#087f6d;box-shadow:0 0 0 4px rgba(8,127,109,.11)}
+.app-main .new-flow-field input:disabled{background:#f1f3f5;color:#58626d}
+.app-main .new-flow-footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #e7eaee}
+.app-main .new-flow-hint{color:#66717d;font-size:.875rem}
+.app-main .new-flow-error{margin:0 0 1rem;padding:.8rem 1rem;border:1px solid #cdd3da;border-left:4px solid #606b76;border-radius:.72rem;background:#f5f6f7;color:#303840;font-size:.9375rem;font-weight:630}
+.app-main .new-flow-party-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.app-main .new-flow-party{padding:1.1rem;border:1px solid #e0e4e8;border-radius:.9rem;background:#f8f9fa}
+.app-main .new-flow-party .new-flow-field+.new-flow-field{margin-top:1rem}
+.app-main .new-flow-party-label{margin-bottom:1rem;color:#27313a;font-size:1rem;font-weight:760}
+.app-main .new-flow-money{display:flex;align-items:stretch}
+.app-main .new-flow-money input{border-radius:.72rem 0 0 .72rem}
+.app-main .new-flow-money span{display:flex;align-items:center;padding:0 .8rem;border:1px solid #cfd6dd;border-left:0;border-radius:0 .72rem .72rem 0;background:#f1f3f5;color:#4f5964;font-size:.9375rem;font-weight:700}
+.app-main .new-flow-review{border-top:1px solid #e6eaed}
+.app-main .new-flow-review-row{display:grid;grid-template-columns:minmax(145px,.38fr) minmax(0,1fr);gap:1rem;padding:.9rem 0;border-bottom:1px solid #e6eaed;font-size:.9375rem}
+.app-main .new-flow-review-row span{color:#626d78}
+.app-main .new-flow-review-row strong{color:#202830;font-weight:690}
+.app-main .new-flow-note{display:flex;flex-direction:column;gap:.3rem;margin-top:1.2rem;padding:1rem 1.1rem;border-radius:.8rem;background:#f1f4f5;color:#46515c;font-size:.9375rem;line-height:1.55}
+.app-main .new-flow-note strong{color:#27313a}
+.app-main .new-flow-success{display:grid;grid-template-columns:auto 1fr;gap:1.25rem;max-width:820px;padding:1.75rem;border:1px solid #d9e2df;border-radius:1.15rem;background:#fff}
+.app-main .new-flow-success-icon{display:flex;align-items:center;justify-content:center;width:3.25rem;height:3.25rem;border-radius:.9rem;background:#087f6d;color:#fff;font-size:1.5rem;font-weight:800}
+.app-main .new-flow-success h2{margin:.15rem 0 .45rem;font-size:1.45rem!important}
+.app-main .new-flow-success p{max-width:680px;color:#53606b;font-size:.9375rem;line-height:1.6}
+.app-main .new-flow-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+@media(max-width:900px){.app-main .new-flow-progress{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.app-main .new-flow-grid,.app-main .new-flow-party-grid{grid-template-columns:1fr}.app-main .new-flow-grid .span-2{grid-column:auto}.app-main .new-flow-progress{grid-template-columns:1fr}.app-main .new-flow-review-row{grid-template-columns:1fr;gap:.25rem}.app-main .new-flow-footer{align-items:stretch;flex-direction:column}.app-main .new-flow-footer .btn{width:100%}.app-main .new-flow-success{grid-template-columns:1fr}}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -2286,6 +2335,7 @@ const HlaseniCAK_1 = require("./components/HlaseniCAK");
 const BankovniIntegrace_1 = require("./components/BankovniIntegrace");
 const NastaveniCAK_1 = require("./components/NastaveniCAK");
 const Wireframes_1 = require("./components/Wireframes");
+const NovaUschova_1 = require("./components/NovaUschova");
 function App() {
     const [nav, setNav] = (0, react_1.useState)({ screen: 'centrum' });
     const navigate = (screen, id) => setNav({ screen, selectedId: id });
@@ -2298,7 +2348,318 @@ function App() {
             nav.screen === 'hlaseni-cak' && (React.createElement(HlaseniCAK_1.default, { id: nav.selectedId ?? 'US-2024-0135', navigate: navigate })),
             nav.screen === 'integrace' && React.createElement(BankovniIntegrace_1.default, { navigate: navigate }),
             nav.screen === 'nastaveni-cak' && React.createElement(NastaveniCAK_1.default, { navigate: navigate }),
+            nav.screen === 'nova' && React.createElement(NovaUschova_1.default, { navigate: navigate }),
             nav.screen === 'wireframe' && React.createElement(Wireframes_1.default, { navigate: navigate }))));
+}
+
+};
+
+
+__mods["components/NovaUschova"] = function(module, exports, require) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = NovaUschova;
+const react_1 = require("react");
+const mockData_1 = require("../data/mockData");
+
+const STEP_LABELS = [
+  'Základní údaje',
+  'Účastníci',
+  'Částka a účet',
+  'Kontrola',
+];
+
+function NovaUschova({ navigate }) {
+    const [step, setStep] = (0, react_1.useState)(0);
+    const [data, setData] = (0, react_1.useState)({
+        vec: '',
+        spis: '',
+        slozitel: '',
+        slozitelId: '',
+        opravneny: '',
+        opravnenyId: '',
+        castka: '',
+        ucetId: 'u3',
+        poznamka: '',
+    });
+    const [error, setError] = (0, react_1.useState)('');
+    const [createdId, setCreatedId] = (0, react_1.useState)(null);
+
+    const readForm = (id) => {
+        const form = document.getElementById(id);
+        if (!form) return {};
+        const fd = new FormData(form);
+        const out = {};
+        for (const [k, v] of fd.entries()) out[k] = String(v).trim();
+        return out;
+    };
+
+    const nextFromBasics = () => {
+        const v = readForm('nova-us-form-1');
+        if (!v.vec) { setError('Doplňte prosím název nebo předmět úschovy.'); return; }
+        setData({ ...data, ...v });
+        setError('');
+        setStep(1);
+    };
+
+    const nextFromPeople = () => {
+        const v = readForm('nova-us-form-2');
+        if (!v.slozitel || !v.opravneny) {
+            setError('Doplňte složitele i oprávněnou osobu.');
+            return;
+        }
+        setData({ ...data, ...v });
+        setError('');
+        setStep(2);
+    };
+
+    const nextFromMoney = () => {
+        const v = readForm('nova-us-form-3');
+        const amount = Number(String(v.castka || '').replace(/\s/g, '').replace(',', '.'));
+        if (!Number.isFinite(amount) || amount <= 0) {
+            setError('Zadejte platnou částku vyšší než 0 Kč.');
+            return;
+        }
+        setData({ ...data, ...v, castka: String(amount) });
+        setError('');
+        setStep(3);
+    };
+
+    const createEscrow = () => {
+        const nextNumber = mockData_1.MOCK_USCHOVY.reduce((max, u) => {
+            const m = String(u.id || '').match(/(\d+)$/);
+            return m ? Math.max(max, Number(m[1])) : max;
+        }, 142) + 1;
+        const id = `US-2026-${String(nextNumber).padStart(4, '0')}`;
+        const today = '03.09.2026';
+        const spis = data.spis || `SP-2026-${String(nextNumber).padStart(4, '0')}`;
+        const castka = Number(data.castka || 0);
+
+        mockData_1.MOCK_USCHOVY.unshift({
+            id,
+            vec: data.vec,
+            spis,
+            stav: 'koncept',
+            castka,
+            ucetId: data.ucetId,
+            odpovAdvocat: 'JUDr. Pavel Krátký',
+            zalozeno: today,
+            upraven: today,
+            slozitele: [{
+                id: `s-${id}`,
+                typ: 'fyzicka',
+                jmeno: data.slozitel,
+                rc: data.slozitelId || 'neuvedeno',
+                adresa: 'Doplnit v detailu úschovy',
+            }],
+            opravneni: [{
+                id: `o-${id}`,
+                typ: 'fyzicka',
+                jmeno: data.opravneny,
+                rc: data.opravnenyId || 'neuvedeno',
+                adresa: 'Doplnit v detailu úschovy',
+            }],
+            hlaseniCAK: null,
+            hlaseniBANKA: null,
+            pohyby: [],
+            historie: [],
+            poznamka: data.poznamka || '',
+        });
+
+        const account = mockData_1.MOCK_UCTY.find((u) => u.id === data.ucetId);
+        if (account && account.stav === 'volny') {
+            account.stav = 'rezervovany';
+            account.prirazenaUschovaId = id;
+            account.prirazenaUschovaVec = data.vec;
+        }
+
+        setCreatedId(id);
+        setStep(4);
+    };
+
+    const progress = React.createElement("div", { className: "new-flow-progress" },
+        STEP_LABELS.map((label, i) => React.createElement("div", {
+            key: label,
+            className: `new-flow-step ${i < step ? 'done' : ''} ${i === step ? 'active' : ''}`
+        },
+            React.createElement("span", { className: "new-flow-step-dot" }, i < step ? '✓' : String(i + 1)),
+            React.createElement("span", null, label)
+        ))
+    );
+
+    if (step === 4) {
+        return React.createElement("div", { className: "min-h-full" },
+            React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
+                React.createElement("button", { className: "new-flow-back", onClick: () => navigate('centrum') }, "← Centrum úschov"),
+                React.createElement("h1", null, "Úschova byla vytvořena")
+            ),
+            React.createElement("div", { className: "px-8 py-7" },
+                React.createElement("div", { className: "new-flow-success" },
+                    React.createElement("div", { className: "new-flow-success-icon" }, "✓"),
+                    React.createElement("div", null,
+                        React.createElement("div", { className: "new-flow-eyebrow" }, "Koncept úschovy"),
+                        React.createElement("h2", null, createdId),
+                        React.createElement("p", null, "Úschova je uložená jako koncept. Teď můžete doplnit detail, dokumenty a následně pokračovat k hlášení ČAK."),
+                        React.createElement("div", { className: "new-flow-actions" },
+                            React.createElement("button", { className: "btn btn-ghost", onClick: () => navigate('centrum') }, "Zpět do centra"),
+                            React.createElement("button", { className: "btn btn-primary", onClick: () => navigate('detail', createdId) }, "Otevřít detail úschovy →")
+                        )
+                    )
+                )
+            )
+        );
+    }
+
+    return React.createElement("div", { className: "min-h-full" },
+        React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
+            React.createElement("button", { className: "new-flow-back", onClick: () => navigate('centrum') }, "← Centrum úschov"),
+            React.createElement("div", { className: "flex items-end justify-between gap-6" },
+                React.createElement("div", null,
+                    React.createElement("div", { className: "new-flow-eyebrow" }, "Nová úschova"),
+                    React.createElement("h1", null, STEP_LABELS[step]),
+                    React.createElement("p", null, `Krok ${step + 1} ze 4 · koncept lze později upravit`)
+                ),
+                React.createElement("button", { className: "btn btn-ghost", onClick: () => navigate('centrum') }, "Zrušit")
+            )
+        ),
+        React.createElement("div", { className: "px-8 py-7 new-flow-wrap" },
+            progress,
+            error && React.createElement("div", { className: "new-flow-error", role: "alert" }, error),
+
+            step === 0 && React.createElement("form", { id: "nova-us-form-1", className: "new-flow-card", onSubmit: (e) => e.preventDefault() },
+                React.createElement("div", { className: "new-flow-section-head" },
+                    React.createElement("h2", null, "Základní údaje"),
+                    React.createElement("p", null, "Identifikace věci a interní evidence kanceláře.")
+                ),
+                React.createElement("div", { className: "new-flow-grid" },
+                    React.createElement("label", { className: "new-flow-field span-2" },
+                        React.createElement("span", null, "Předmět úschovy *"),
+                        React.createElement("input", { name: "vec", defaultValue: data.vec, placeholder: "např. Prodej nemovitosti – Vinohradská 24, Praha 2", autoFocus: true })
+                    ),
+                    React.createElement("label", { className: "new-flow-field" },
+                        React.createElement("span", null, "Spisová značka"),
+                        React.createElement("input", { name: "spis", defaultValue: data.spis, placeholder: "volitelné – doplní se automaticky" })
+                    ),
+                    React.createElement("label", { className: "new-flow-field" },
+                        React.createElement("span", null, "Odpovědný advokát"),
+                        React.createElement("input", { value: "JUDr. Pavel Krátký", disabled: true })
+                    )
+                ),
+                React.createElement("div", { className: "new-flow-footer" },
+                    React.createElement("span", { className: "new-flow-hint" }, "* povinné pole"),
+                    React.createElement("button", { type: "button", className: "btn btn-primary", onClick: nextFromBasics }, "Pokračovat →")
+                )
+            ),
+
+            step === 1 && React.createElement("form", { id: "nova-us-form-2", className: "new-flow-card", onSubmit: (e) => e.preventDefault() },
+                React.createElement("div", { className: "new-flow-section-head" },
+                    React.createElement("h2", null, "Účastníci úschovy"),
+                    React.createElement("p", null, "Pro založení konceptu stačí základní identifikace. Detailní údaje lze doplnit později.")
+                ),
+                React.createElement("div", { className: "new-flow-party-grid" },
+                    React.createElement("div", { className: "new-flow-party" },
+                        React.createElement("div", { className: "new-flow-party-label" }, "Složitel"),
+                        React.createElement("label", { className: "new-flow-field" },
+                            React.createElement("span", null, "Jméno / název *"),
+                            React.createElement("input", { name: "slozitel", defaultValue: data.slozitel, placeholder: "Petr Novák", autoFocus: true })
+                        ),
+                        React.createElement("label", { className: "new-flow-field" },
+                            React.createElement("span", null, "Rodné číslo / IČO"),
+                            React.createElement("input", { name: "slozitelId", defaultValue: data.slozitelId, placeholder: "volitelné" })
+                        )
+                    ),
+                    React.createElement("div", { className: "new-flow-party" },
+                        React.createElement("div", { className: "new-flow-party-label" }, "Oprávněná osoba"),
+                        React.createElement("label", { className: "new-flow-field" },
+                            React.createElement("span", null, "Jméno / název *"),
+                            React.createElement("input", { name: "opravneny", defaultValue: data.opravneny, placeholder: "Jana Nováková" })
+                        ),
+                        React.createElement("label", { className: "new-flow-field" },
+                            React.createElement("span", null, "Rodné číslo / IČO"),
+                            React.createElement("input", { name: "opravnenyId", defaultValue: data.opravnenyId, placeholder: "volitelné" })
+                        )
+                    )
+                ),
+                React.createElement("div", { className: "new-flow-footer" },
+                    React.createElement("button", { type: "button", className: "btn btn-ghost", onClick: () => { setError(''); setStep(0); } }, "← Zpět"),
+                    React.createElement("button", { type: "button", className: "btn btn-primary", onClick: nextFromPeople }, "Pokračovat →")
+                )
+            ),
+
+            step === 2 && React.createElement("form", { id: "nova-us-form-3", className: "new-flow-card", onSubmit: (e) => e.preventDefault() },
+                React.createElement("div", { className: "new-flow-section-head" },
+                    React.createElement("h2", null, "Částka a úschovní účet"),
+                    React.createElement("p", null, "Vyberte dostupný účet a očekávanou výši prostředků.")
+                ),
+                React.createElement("div", { className: "new-flow-grid" },
+                    React.createElement("label", { className: "new-flow-field" },
+                        React.createElement("span", null, "Částka úschovy *"),
+                        React.createElement("div", { className: "new-flow-money" },
+                            React.createElement("input", { name: "castka", inputMode: "decimal", defaultValue: data.castka, placeholder: "3 500 000", autoFocus: true }),
+                            React.createElement("span", null, "Kč")
+                        )
+                    ),
+                    React.createElement("label", { className: "new-flow-field" },
+                        React.createElement("span", null, "Úschovní účet *"),
+                        React.createElement("select", { name: "ucetId", defaultValue: data.ucetId },
+                            mockData_1.MOCK_UCTY.filter((u) => ['volny','rezervovany'].includes(u.stav)).map((u) =>
+                                React.createElement("option", { key: u.id, value: u.id }, `${u.cislo} · ${u.banka}${u.stav === 'rezervovany' ? ' · rezervovaný' : ''}`)
+                            )
+                        )
+                    ),
+                    React.createElement("label", { className: "new-flow-field span-2" },
+                        React.createElement("span", null, "Interní poznámka"),
+                        React.createElement("textarea", { name: "poznamka", defaultValue: data.poznamka, rows: 4, placeholder: "Volitelná poznámka pro tým kanceláře…" })
+                    )
+                ),
+                React.createElement("div", { className: "new-flow-footer" },
+                    React.createElement("button", { type: "button", className: "btn btn-ghost", onClick: () => { setError(''); setStep(1); } }, "← Zpět"),
+                    React.createElement("button", { type: "button", className: "btn btn-primary", onClick: nextFromMoney }, "Pokračovat na kontrolu →")
+                )
+            ),
+
+            step === 3 && React.createElement("div", { className: "new-flow-card" },
+                React.createElement("div", { className: "new-flow-section-head" },
+                    React.createElement("h2", null, "Kontrola před vytvořením"),
+                    React.createElement("p", null, "Po vytvoření bude úschova ve stavu Koncept. Nic se zatím neposílá do ČAK ani banky.")
+                ),
+                React.createElement("div", { className: "new-flow-review" },
+                    React.createElement("div", { className: "new-flow-review-row" },
+                        React.createElement("span", null, "Předmět"),
+                        React.createElement("strong", null, data.vec)
+                    ),
+                    React.createElement("div", { className: "new-flow-review-row" },
+                        React.createElement("span", null, "Spis"),
+                        React.createElement("strong", null, data.spis || "Vytvoří se automaticky")
+                    ),
+                    React.createElement("div", { className: "new-flow-review-row" },
+                        React.createElement("span", null, "Složitel"),
+                        React.createElement("strong", null, data.slozitel)
+                    ),
+                    React.createElement("div", { className: "new-flow-review-row" },
+                        React.createElement("span", null, "Oprávněná osoba"),
+                        React.createElement("strong", null, data.opravneny)
+                    ),
+                    React.createElement("div", { className: "new-flow-review-row" },
+                        React.createElement("span", null, "Částka"),
+                        React.createElement("strong", null, new Intl.NumberFormat('cs-CZ').format(Number(data.castka || 0)) + " Kč")
+                    ),
+                    React.createElement("div", { className: "new-flow-review-row" },
+                        React.createElement("span", null, "Účet"),
+                        React.createElement("strong", null, (mockData_1.MOCK_UCTY.find((u) => u.id === data.ucetId)?.cislo) || data.ucetId)
+                    )
+                ),
+                React.createElement("div", { className: "new-flow-note" },
+                    React.createElement("strong", null, "Co bude následovat"),
+                    React.createElement("span", null, "Doplnění detailů → kontrola dokumentů → hlášení ČAK → bankovní potvrzení → příjem prostředků.")
+                ),
+                React.createElement("div", { className: "new-flow-footer" },
+                    React.createElement("button", { type: "button", className: "btn btn-ghost", onClick: () => { setError(''); setStep(2); } }, "← Zpět"),
+                    React.createElement("button", { type: "button", className: "btn btn-primary", onClick: createEscrow }, "Vytvořit úschovu")
+                )
+            )
+        )
+    );
 }
 
 };
@@ -2499,7 +2860,7 @@ function CentrumUschov({ navigate }) {
                 React.createElement("div", null,
                     React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "Centrum \u00FAschov"),
                     React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, "02. z\u00E1\u0159\u00ED 2026 \u00B7 JUDr. Pavel Kr\u00E1tk\u00FD")),
-                React.createElement("button", { className: "btn btn-primary mt-1" }, "+ Nov\u00E1 \u00FAschova"))),
+                React.createElement("button", { className: "btn btn-primary mt-1", onClick: () => navigate('nova') }, "+ Nov\u00E1 \u00FAschova"))),
         React.createElement("div", { className: "px-8 py-6" },
             disconnected.length > 0 && (React.createElement("div", { className: "alert alert-critical mb-4" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#FF6250' } }, "\u26A0"),
