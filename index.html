@@ -2372,6 +2372,63 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="cak-table-scroll-hard-fix">
+/* Hard fix for the "Advokáti a přístupy ČAK" table:
+   no horizontal scrolling and no artificial minimum width. */
+.app-main .cak-access-table,
+.app-main .cak-access-table-wrap,
+.app-main .cak-access-table-container{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  overflow:visible!important;
+  overflow-x:visible!important;
+}
+
+.app-main .cak-access-table table,
+.app-main .cak-access-table-wrap table,
+.app-main .cak-access-table-container table{
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  table-layout:fixed!important;
+}
+
+.app-main .cak-access-table th,
+.app-main .cak-access-table td,
+.app-main .cak-access-table-wrap th,
+.app-main .cak-access-table-wrap td,
+.app-main .cak-access-table-container th,
+.app-main .cak-access-table-container td{
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+}
+
+/* Fallback for the actual utility wrapper used by the current static build. */
+.app-main .overflow-x-auto:has(table),
+.app-main .overflow-auto:has(table){
+  overflow-x:visible!important;
+  overflow-y:visible!important;
+  max-width:none!important;
+  min-width:0!important;
+}
+
+.app-main .overflow-x-auto:has(table) table,
+.app-main .overflow-auto:has(table) table{
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  table-layout:fixed!important;
+}
+
+/* Remove scrollbar artifacts from any residual wrapper. */
+.app-main .overflow-x-auto:has(table)::-webkit-scrollbar,
+.app-main .overflow-auto:has(table)::-webkit-scrollbar{
+  display:none!important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
