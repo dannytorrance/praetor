@@ -2501,6 +2501,83 @@ html { font-size: 16px; }
 .app-main .status-badge.status-stav-neznamy-rozpojeny, .status-badge.status-stav-neznamy-rozpojeny{background:#FF6250!important;color:#ffffff!important;}
 </style>
 
+
+<style id="no-hover-lift-and-dark-table-head">
+/* No UI element should physically jump/lift on hover. */
+.app-main button:hover,
+.app-main .btn:hover,
+.app-main a:hover,
+.app-main .card:hover,
+.app-main .interactive-card:hover,
+.app-main table tbody tr:hover,
+.app-main [role="button"]:hover{
+  transform:none!important;
+  translate:none!important;
+}
+
+/* Dark table headers with white labels. */
+.app-main table thead th,
+.app-main .data-table thead th{
+  background:#263646!important;
+  color:#ffffff!important;
+  border-bottom-color:#263646!important;
+}
+.app-main table thead th *,
+.app-main .data-table thead th *{
+  color:#ffffff!important;
+}
+
+/* Account numbers: monospace stays, but is now bold. */
+.app-main .account-number,
+.app-main .font-mono.text-\[13px\]{
+  font-weight:700!important;
+}
+</style>
+
+
+<style id="account-overview-badge-contrast">
+/* Přehled účtů — preserve semantic badge backgrounds, use white labels for contrast. */
+.app-main .status-badge.status-volny,
+.app-main .status-badge.status-prirazen,
+.app-main .status-badge.status-rezervovany,
+.app-main .status-badge.status-ceka_uvolneni,
+.app-main .status-badge.status-deaktivovany{
+  color:#ffffff!important;
+}
+</style>
+
+
+<style id="bank-integration-fullwidth-fix">
+/* Bankovní integrace — same full content width as Centrum úschov. */
+.app-main .bank-integration-page,
+.app-main .bank-integration-content{
+  width:100%!important;
+  max-width:none!important;
+}
+.app-main .bank-integration-page .overflow-x-auto,
+.app-main .bank-integration-content .overflow-x-auto{
+  overflow-x:visible!important;
+}
+</style>
+
+
+<style id="sticky-header-clarity">
+/* Sticky page header: almost opaque, blur retained. */
+.app-main .page-header{
+  background:rgba(255,255,255,.95)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+  backdrop-filter:blur(14px)!important;
+  border-bottom:3px solid transparent!important;
+  transition:border-color .16s ease, box-shadow .16s ease!important;
+}
+
+/* Applied only after the header has actually become stuck. */
+.app-main .page-header.is-stuck{
+  border-bottom-color:#d7dee7!important;
+  box-shadow:0 8px 20px rgba(23,32,43,.045)!important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -3037,7 +3114,7 @@ function BankovniIntegrace({ navigate: _navigate }) {
         React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
             React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "Bankovn\u00ED integrace"),
             React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, "Spr\u00E1va bankovn\u00EDch napojen\u00ED a synchronizace \u00FAschovn\u00EDch \u00FA\u010Dt\u016F")),
-        React.createElement("div", { className: "px-8 py-6 space-y-4 max-w-3xl" },
+        React.createElement("div", { className: "px-8 py-6 space-y-4" },
             MOCK.some((i) => i.stav === 'chyba') && (React.createElement("div", { className: "alert alert-critical" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#FF6250' } }, "\u26A0"),
                 React.createElement("p", { className: "text-red-800 text-[13px]" },
@@ -3184,7 +3261,7 @@ function CentrumUschov({ navigate }) {
                         ? '1 úschova ve stavu Stav neznámý / rozpojený'
                         : `${disconnected.length} úschovy ve stavu Stav neznámý / rozpojený`),
                     React.createElement("p", { className: "text-red-700 text-[13px] mt-0.5" }, "Tyto \u00FAschovy vy\u017Eaduj\u00ED ru\u010Dn\u00ED prov\u011B\u0159en\u00ED \u2014 zm\u011Bna byla provedena p\u0159\u00EDmo v \u010CAK a Praetor nem\u016F\u017Ee automaticky pokra\u010Dovat v procesu."),
-                    React.createElement("div", { className: "flex gap-2 mt-2 flex-wrap" }, disconnected.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[13px] text-red-700 underline hover:text-red-900 font-semibold" }, u.id))))))),
+                    React.createElement("div", { className: "flex gap-2 mt-2 flex-wrap" }, disconnected.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[13px] font-bold text-red-700 underline hover:text-red-900 font-semibold" }, u.id))))))),
             chybovane.length > 0 && (React.createElement("div", { className: "alert alert-warning mb-4" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#d97706' } }, "!"),
                 React.createElement("p", { className: "text-amber-800 text-[13px]" },
@@ -3192,7 +3269,7 @@ function CentrumUschov({ navigate }) {
                         ? '1 úschova vyžaduje pozornost:'
                         : `${chybovane.length} úschovy vyžadují pozornost:`),
                     ' ',
-                    chybovane.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[13px] text-amber-700 underline hover:text-amber-900 font-semibold mr-2" }, u.id)))))),
+                    chybovane.map((u) => (React.createElement("button", { key: u.id, onClick: () => navigate('detail', u.id), className: "font-mono text-[13px] font-bold text-amber-700 underline hover:text-amber-900 font-semibold mr-2" }, u.id)))))),
             React.createElement("div", { className: "grid grid-cols-4 gap-3 mb-6" },
                 React.createElement("div", { className: "stat-card" },
                     React.createElement("div", { className: "stat-card-label" }, "Aktivn\u00ED \u00FAschovy"),
@@ -3235,7 +3312,7 @@ function CentrumUschov({ navigate }) {
                             React.createElement("td", null,
                                 React.createElement("div", { className: "font-mono text-[14px] font-semibold mb-0.5", style: { color: isDisconnected ? '#FF6250' : '#888888' } }, u.id),
                                 React.createElement("div", { className: "font-medium text-ink text-[13px] leading-snug" }, u.vec),
-                                React.createElement("div", { className: "font-mono text-[13px] mt-0.5", style: { color: '#888888' } }, u.spis)),
+                                React.createElement("div", { className: "font-mono text-[13px] font-bold mt-0.5", style: { color: '#888888' } }, u.spis)),
                             React.createElement("td", null,
                                 React.createElement("div", { className: "text-[13px] text-ink" }, u.slozitele[0]?.jmeno),
                                 u.slozitele.length > 1 && (React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } },
@@ -3244,9 +3321,9 @@ function CentrumUschov({ navigate }) {
                                     " dal\u0161\u00ED"))),
                             React.createElement("td", null,
                                 React.createElement(StatusBadge_1.default, { stav: u.stav, size: "sm" })),
-                            React.createElement("td", null, u.ucetId ? (React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#555555' } }, UCET_MAP[u.ucetId] ?? '–')) : (React.createElement("span", { className: "text-[13px]", style: { color: '#888888' } }, "\u2013"))),
+                            React.createElement("td", null, u.ucetId ? (React.createElement("span", { className: "font-mono text-[13px] font-bold", style: { color: '#555555' } }, UCET_MAP[u.ucetId] ?? '–')) : (React.createElement("span", { className: "text-[13px]", style: { color: '#888888' } }, "\u2013"))),
                             React.createElement("td", { style: { textAlign: 'right' } },
-                                React.createElement("span", { className: "font-mono text-[13px] font-semibold text-ink" }, (0, mockData_1.formatCastka)(u.castka))),
+                                React.createElement("span", { className: "font-mono text-[13px] font-bold font-semibold text-ink" }, (0, mockData_1.formatCastka)(u.castka))),
                             React.createElement("td", null,
                                 React.createElement("button", { className: "text-[13px] font-medium transition-colors", style: { color: '#888888' }, onClick: (e) => {
                                         e.stopPropagation();
@@ -3395,8 +3472,8 @@ function DetailUschovy({ id, navigate }) {
             React.createElement("div", { className: "flex items-start justify-between gap-4" },
                 React.createElement("div", null,
                     React.createElement("div", { className: "flex items-center gap-3 flex-wrap" },
-                        React.createElement("span", { className: "font-mono text-[13px] font-semibold", style: { color: isDisconnected ? '#FF6250' : '#888888' } }, u.id),
-                        React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#888888' } }, u.spis),
+                        React.createElement("span", { className: "font-mono text-[13px] font-bold font-semibold", style: { color: isDisconnected ? '#FF6250' : '#888888' } }, u.id),
+                        React.createElement("span", { className: "font-mono text-[13px] font-bold", style: { color: '#888888' } }, u.spis),
                         React.createElement(StatusBadge_1.default, { stav: u.stav })),
                     React.createElement("h1", { className: "font-display text-[22px] text-ink mt-1.5", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, u.vec),
                     React.createElement("p", { className: "text-[13px] mt-1", style: { color: '#888888' } },
@@ -3454,7 +3531,7 @@ function DetailUschovy({ id, navigate }) {
                             React.createElement("div", { className: "flex items-center gap-2 mb-2" },
                                 React.createElement("span", { style: { color: '#10b981', fontSize: 15 } }, "\u2713"),
                                 React.createElement("span", { className: "font-semibold text-[13px] text-ink" }, "Nahl\u00E1\u0161eno")),
-                            React.createElement("div", { className: "font-mono text-[13px]", style: { color: '#888888' } }, u.hlaseniCAK.evidCislo),
+                            React.createElement("div", { className: "font-mono text-[13px] font-bold", style: { color: '#888888' } }, u.hlaseniCAK.evidCislo),
                             React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } },
                                 u.hlaseniCAK.datum,
                                 " v ",
@@ -3473,7 +3550,7 @@ function DetailUschovy({ id, navigate }) {
                             React.createElement("div", { className: "flex items-center gap-2 mb-2" },
                                 React.createElement("span", { style: { color: '#10b981', fontSize: 15 } }, "\u2713"),
                                 React.createElement("span", { className: "font-semibold text-[13px] text-ink" }, "Nahl\u00E1\u0161eno")),
-                            React.createElement("div", { className: "font-mono text-[13px]", style: { color: '#888888' } }, u.hlaseniBANKA.evidCislo),
+                            React.createElement("div", { className: "font-mono text-[13px] font-bold", style: { color: '#888888' } }, u.hlaseniBANKA.evidCislo),
                             React.createElement("div", { className: "text-[13px]", style: { color: '#888888' } },
                                 u.hlaseniBANKA.banka,
                                 " \u00B7 ",
@@ -3500,15 +3577,15 @@ function DetailUschovy({ id, navigate }) {
                                 React.createElement("th", null, "VS"),
                                 React.createElement("th", { style: { textAlign: 'right' } }, "\u010C\u00E1stka"))),
                         React.createElement("tbody", null, u.pohyby.map((p) => (React.createElement("tr", { key: p.id, style: { cursor: 'default' } },
-                            React.createElement("td", { className: "font-mono text-[13px]", style: { color: '#555555' } }, p.datum),
+                            React.createElement("td", { className: "font-mono text-[13px] font-bold", style: { color: '#555555' } }, p.datum),
                             React.createElement("td", null,
                                 React.createElement("span", { className: "text-[13px] px-2.5 py-1 rounded-full font-semibold", style: {
                                         background: p.typ === 'prijem' ? '#ecfdf5' : p.typ === 'vydej' ? '#eff6ff' : '#fef9ed',
                                         color: p.typ === 'prijem' ? '#005f4e' : p.typ === 'vydej' ? '#1d4ed8' : '#92400e',
                                     } }, p.typ === 'prijem' ? 'Příjem' : p.typ === 'vydej' ? 'Výdej' : 'Vrácení')),
                             React.createElement("td", { className: "text-[13px] text-ink" }, p.popis),
-                            React.createElement("td", { className: "font-mono text-[13px]", style: { color: '#888888' } }, p.protiucet ?? '–'),
-                            React.createElement("td", { className: "font-mono text-[13px]", style: { color: '#888888' } }, p.vs ?? '–'),
+                            React.createElement("td", { className: "font-mono text-[13px] font-bold", style: { color: '#888888' } }, p.protiucet ?? '–'),
+                            React.createElement("td", { className: "font-mono text-[13px] font-bold", style: { color: '#888888' } }, p.vs ?? '–'),
                             React.createElement("td", { style: {
                                     textAlign: 'right',
                                     fontFamily: "'JetBrains Mono', monospace",
@@ -3531,7 +3608,7 @@ function DetailUschovy({ id, navigate }) {
                         : []),
                     { cas: u.zalozeno + ' 00:00', kdo: u.odpovAdvocat, co: 'Úschova založena' },
                 ].map((item, i) => (React.createElement("div", { key: i, className: "flex gap-4 items-start text-[13px]" },
-                    React.createElement("div", { className: "font-mono text-[13px] w-40 shrink-0 pt-0.5", style: { color: '#888888' } }, item.cas),
+                    React.createElement("div", { className: "font-mono text-[13px] font-bold w-40 shrink-0 pt-0.5", style: { color: '#888888' } }, item.cas),
                     React.createElement("div", { className: "flex-1" },
                         React.createElement("span", { className: "text-ink" }, item.co),
                         React.createElement("span", { style: { color: '#888888' } },
@@ -3679,7 +3756,7 @@ function HlaseniCAK({ id, navigate }) {
                 React.createElement("div", { className: "card overflow-hidden mb-5" },
                     React.createElement("div", { className: "px-5 py-3 border-b", style: { borderColor: '#E0E0E0', background: '#F9F9F9' } },
                         React.createElement("p", { className: "section-label mb-0" }, "Data k odesl\u00E1n\u00ED do \u010CAK")),
-                    React.createElement("div", { className: "p-5 font-mono text-[13px] space-y-1.5 leading-relaxed" }, Object.entries(formData).map(([key, val]) => {
+                    React.createElement("div", { className: "p-5 font-mono text-[13px] font-bold space-y-1.5 leading-relaxed" }, Object.entries(formData).map(([key, val]) => {
                         const changed = changedFields.has(key);
                         return (React.createElement("div", { key: key, className: "flex gap-3" },
                             React.createElement("span", { className: "w-40 shrink-0", style: { color: '#888888' } },
@@ -3827,13 +3904,13 @@ function NastaveniCAK({ navigate: _navigate }) {
                                 React.createElement("td", null,
                                     React.createElement("div", { className: "font-medium text-[13px] text-ink" }, adv.jmeno)),
                                 React.createElement("td", null,
-                                    React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#555555' } }, adv.cak)),
+                                    React.createElement("span", { className: "font-mono text-[13px] font-bold", style: { color: '#555555' } }, adv.cak)),
                                 React.createElement("td", null,
                                     React.createElement("span", { className: "status-badge status-" + status },
                                         React.createElement("span", { className: "status-dot", style: { background: cfg.dot } }),
                                         cfg.label)),
                                 React.createElement("td", null,
-                                    React.createElement("span", { className: "font-mono text-[13px]", style: {
+                                    React.createElement("span", { className: "font-mono text-[13px] font-bold", style: {
                                             color: adv.token === 'vyprsely'
                                                 ? '#FF6250'
                                                 : adv.token === 'vyprsi'
@@ -3841,7 +3918,7 @@ function NastaveniCAK({ navigate: _navigate }) {
                                                     : '#888888',
                                         } }, adv.expirace ?? '–')),
                                 React.createElement("td", null,
-                                    React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#888888' } }, adv.posledniPouziti ?? '–')),
+                                    React.createElement("span", { className: "font-mono text-[13px] font-bold", style: { color: '#888888' } }, adv.posledniPouziti ?? '–')),
                                 React.createElement("td", null, (adv.token === 'vyprsely' || adv.token === 'vyprsi') && (React.createElement("button", { onClick: () => handleRenew(adv.id), disabled: renewingId === adv.id, className: "btn text-[13px]", style: {
                                         padding: '5px 12px',
                                         background: isError ? '#fef2f2' : '#fffbeb',
@@ -4812,6 +4889,23 @@ client_1.default.createRoot(document.getElementById('root')).render(react_1.defa
     const root=document.getElementById('root');
     root.innerHTML='<div style="font-family:system-ui,sans-serif;padding:40px;max-width:900px;margin:auto"><h1>Aplikaci se nepodařilo spustit</h1><p>Chyba JavaScriptu:</p><pre style="white-space:pre-wrap;background:#f5f5f5;padding:16px;border-radius:8px">'+String(err&&err.stack||err).replace(/[&<>]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])})+'</pre></div>';
   }
+})();
+</script>
+
+
+<script id="sticky-header-state">
+(function(){
+  function updateStickyHeaders(){
+    document.querySelectorAll('.page-header').forEach(function(header){
+      var stickyTop=parseFloat(getComputedStyle(header).top)||0;
+      header.classList.toggle('is-stuck', header.getBoundingClientRect().top <= stickyTop + 1 && window.scrollY > 0);
+    });
+  }
+  window.addEventListener('scroll', updateStickyHeaders, {passive:true});
+  window.addEventListener('resize', updateStickyHeaders);
+  new MutationObserver(function(){ requestAnimationFrame(updateStickyHeaders); })
+    .observe(document.getElementById('root'), {childList:true, subtree:true});
+  requestAnimationFrame(updateStickyHeaders);
 })();
 </script>
 
