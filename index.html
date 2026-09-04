@@ -1952,9 +1952,7 @@ html { font-size: 16px; }
   gap: 6px;
   padding: 5px 9px !important;
   border-radius: 9px !important;
-  background: #eef1f4 !important;
-  border: 1px solid #e1e5ea !important;
-  color: #414b58 !important;
+  border: 0 !important;
   font-size: .875rem !important;
   line-height: 1.2 !important;
   font-weight: 650 !important;
@@ -2427,6 +2425,80 @@ html { font-size: 16px; }
 .app-main .overflow-auto:has(table)::-webkit-scrollbar{
   display:none!important;
 }
+</style>
+
+
+<style id="status-badge-final-color-fix">
+.app-main .status-badge,
+.status-badge{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+.app-main .status-badge .status-dot,
+.status-badge .status-dot,
+.app-main .status-dot,
+.status-dot{
+  display:none!important;
+}
+</style>
+
+
+<style id="status-badge-class-refactor">
+/* Status badges: class-based presentation, no inline visual styling. */
+.app-main .status-badge,
+.status-badge{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:2rem!important;
+  padding:.42rem .82rem!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  border-radius:999px!important;
+  font-size:.8125rem!important;
+  font-weight:700!important;
+  line-height:1.15!important;
+  white-space:nowrap!important;
+}
+.app-main .status-dot,
+.status-dot{display:none!important;}
+.app-main .status-badge.status-aktivni, .status-badge.status-aktivni{background:#10b981!important;color:#ffffff!important;}
+.app-main .status-badge.status-chyba, .status-badge.status-chyba{background:#ef4444!important;color:#ffffff!important;}
+.app-main .status-badge.status-vyprsely, .status-badge.status-vyprsely{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-nepripojeno, .status-badge.status-nepripojeno{background:#d1d5db!important;color:#17202b!important;}
+.app-main .status-badge.status-vyprsi, .status-badge.status-vyprsi{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-chybi, .status-badge.status-chybi{background:#d1d5db!important;color:#17202b!important;}
+.app-main .status-badge.status-volny, .status-badge.status-volny{background:#10b981!important;color:#ffffff!important;}
+.app-main .status-badge.status-prirazen, .status-badge.status-prirazen{background:#3b82f6!important;color:#ffffff!important;}
+.app-main .status-badge.status-rezervovany, .status-badge.status-rezervovany{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-ceka-uvolneni, .status-badge.status-ceka-uvolneni{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-deaktivovany, .status-badge.status-deaktivovany{background:#d1d5db!important;color:#17202b!important;}
+.app-main .status-badge.status-chyba-sync, .status-badge.status-chyba-sync{background:#ef4444!important;color:#ffffff!important;}
+.app-main .status-badge.status-rucni-import, .status-badge.status-rucni-import{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-koncept, .status-badge.status-koncept{background:#AAAAAA!important;color:#ffffff!important;}
+.app-main .status-badge.status-pripravena, .status-badge.status-pripravena{background:#3b82f6!important;color:#ffffff!important;}
+.app-main .status-badge.status-nahlasena-cak, .status-badge.status-nahlasena-cak{background:#c9980a!important;color:#ffffff!important;}
+.app-main .status-badge.status-prostredky-prijaty, .status-badge.status-prostredky-prijaty{background:#009379!important;color:#ffffff!important;}
+.app-main .status-badge.status-ukoncena-vyplaceny, .status-badge.status-ukoncena-vyplaceny{background:#BBBBBB!important;color:#17202b!important;}
+.app-main .status-badge.status-ukoncena-vraceny, .status-badge.status-ukoncena-vraceny{background:#009379!important;color:#ffffff!important;}
+.app-main .status-badge.status-zrusena, .status-badge.status-zrusena{background:#CCCCCC!important;color:#17202b!important;}
+.app-main .status-badge.status-historicka, .status-badge.status-historicka{background:#DDDDDD!important;color:#17202b!important;}
+.app-main .status-badge.status-neznamy, .status-badge.status-neznamy{background:#FF6250!important;color:#ffffff!important;}
+.app-main .status-badge.status-vyprsely-token, .status-badge.status-vyprsely-token{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-brzy-vyprsi, .status-badge.status-brzy-vyprsi{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-prirazen-aktivni-uschova, .status-badge.status-prirazen-aktivni-uschova{background:#3b82f6!important;color:#ffffff!important;}
+.app-main .status-badge.status-ceka-na-uvolneni, .status-badge.status-ceka-na-uvolneni{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-chyba-synchronizace, .status-badge.status-chyba-synchronizace{background:#ef4444!important;color:#ffffff!important;}
+.app-main .status-badge.status-vyzaduje-rucni-import, .status-badge.status-vyzaduje-rucni-import{background:#f59e0b!important;color:#ffffff!important;}
+.app-main .status-badge.status-pripravena-k-nahlaseni, .status-badge.status-pripravena-k-nahlaseni{background:#3b82f6!important;color:#ffffff!important;}
+.app-main .status-badge.status-nahlasena-cak-ceka-na-prostredky, .status-badge.status-nahlasena-cak-ceka-na-prostredky{background:#c9980a!important;color:#ffffff!important;}
+.app-main .status-badge.status-ukoncena-prostredky-vyplaceny, .status-badge.status-ukoncena-prostredky-vyplaceny{background:#BBBBBB!important;color:#17202b!important;}
+.app-main .status-badge.status-ukoncena-prostredky-vraceny, .status-badge.status-ukoncena-prostredky-vraceny{background:#009379!important;color:#ffffff!important;}
+.app-main .status-badge.status-zrusena-pred-prijetim-prostredku, .status-badge.status-zrusena-pred-prijetim-prostredku{background:#CCCCCC!important;color:#17202b!important;}
+.app-main .status-badge.status-historicka-uschova, .status-badge.status-historicka-uschova{background:#DDDDDD!important;color:#17202b!important;}
+.app-main .status-badge.status-stav-neznamy-rozpojeny, .status-badge.status-stav-neznamy-rozpojeny{background:#FF6250!important;color:#ffffff!important;}
 </style>
 
 </head>
@@ -2994,7 +3066,7 @@ function BankovniIntegrace({ navigate: _navigate }) {
                                     " \u00FA\u010Dt\u016F"))),
                         React.createElement("div", { className: "flex items-center gap-3" },
                             React.createElement("div", { className: "text-right" },
-                                React.createElement("span", { className: "status-badge", style: { background: cfg.bg, color: cfg.text } },
+                                React.createElement("span", { className: "status-badge status-" + status },
                                     React.createElement("span", { className: "status-dot", style: { background: cfg.dot } }),
                                     cfg.label),
                                 integ.posledniSync && (React.createElement("div", { className: "text-[13px] font-mono mt-1", style: { color: '#888888' } },
@@ -3757,7 +3829,7 @@ function NastaveniCAK({ navigate: _navigate }) {
                                 React.createElement("td", null,
                                     React.createElement("span", { className: "font-mono text-[13px]", style: { color: '#555555' } }, adv.cak)),
                                 React.createElement("td", null,
-                                    React.createElement("span", { className: "status-badge", style: { background: cfg.bg, color: cfg.text } },
+                                    React.createElement("span", { className: "status-badge status-" + status },
                                         React.createElement("span", { className: "status-dot", style: { background: cfg.dot } }),
                                         cfg.label)),
                                 React.createElement("td", null,
@@ -3831,7 +3903,7 @@ function UcetCard({ ucet }) {
             React.createElement("div", null,
                 React.createElement("div", { className: "font-mono text-[13.5px] font-semibold text-ink" }, ucet.cislo),
                 React.createElement("div", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, ucet.banka)),
-            React.createElement("span", { className: "status-badge shrink-0", style: { background: cfg.bg, color: cfg.text } },
+            React.createElement("span", { className: "status-badge shrink-0", style: { background: cfg.dot, color: cfg.text, border: 'none' } },
                 React.createElement("span", { className: "status-dot", style: { background: cfg.dot } }),
                 cfg.label)),
         ucet.stav === 'prirazen' && ucet.prirazenaUschovaId && (React.createElement("div", { className: "rounded-lg px-3 py-2 mb-3 text-[13px]", style: { background: '#eff6ff', border: '1px solid #bfdbfe' } },
@@ -4062,14 +4134,7 @@ exports.STAV_CONFIG = {
 };
 function StatusBadge({ stav, size = 'md' }) {
     const cfg = exports.STAV_CONFIG[stav];
-    return (React.createElement("span", { className: "status-badge", style: {
-            background: cfg.bg,
-            color: cfg.text,
-            padding: size === 'sm' ? '2px 9px 2px 7px' : '3px 11px 3px 8px',
-            fontSize: size === 'sm' ? '11px' : '12px',
-            outline: cfg.ring ? `1.5px solid ${cfg.ring}` : undefined,
-            outlineOffset: cfg.ring ? '1px' : undefined,
-        } },
+    return (React.createElement("span", { className: "status-badge status-" + String(cfg.label || "default").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"") },
         React.createElement("span", { className: `status-dot${cfg.pulse ? ' pulse' : ''}`, style: { background: cfg.dot, width: size === 'sm' ? 5 : 6, height: size === 'sm' ? 5 : 6 } }),
         cfg.label));
 }
