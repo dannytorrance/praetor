@@ -2547,23 +2547,23 @@ html { font-size: 16px; }
 </style>
 
 
-<style id="bank-integration-fullwidth-fix">
-/* Bankovní integrace — same full content width as Centrum úschov. */
-.app-main .bank-integration-page,
-.app-main .bank-integration-content{
-  width:100%!important;
-  max-width:none!important;
-}
-.app-main .bank-integration-page .overflow-x-auto,
-.app-main .bank-integration-content .overflow-x-auto{
-  overflow-x:visible!important;
-}
-</style>
-
 
 <style id="sticky-header-clarity">
-/* Sticky page header: almost opaque, blur retained. */
+/* Page header visually spans the full available app-page width, even when nested
+   inside a narrower content wrapper. */
 .app-main .page-header{
+  position:sticky!important;
+  top:0!important;
+  z-index:30!important;
+  width:auto!important;
+  max-width:none!important;
+
+  /* Break out of a width-limited parent and align with the full .app-main viewport. */
+  margin-left:calc((100vw - 100%) / -2)!important;
+  margin-right:calc((100vw - 100%) / -2)!important;
+  padding-left:max(2rem, calc((100vw - 100%) / 2 + 2rem))!important;
+  padding-right:max(2rem, calc((100vw - 100%) / 2 + 2rem))!important;
+
   background:rgba(255,255,255,.95)!important;
   -webkit-backdrop-filter:blur(14px)!important;
   backdrop-filter:blur(14px)!important;
@@ -2571,10 +2571,39 @@ html { font-size: 16px; }
   transition:border-color .16s ease, box-shadow .16s ease!important;
 }
 
-/* Applied only after the header has actually become stuck. */
+/* Only when the header is actually stuck during scroll. */
 .app-main .page-header.is-stuck{
+  background:rgba(255,255,255,.95)!important;
   border-bottom-color:#d7dee7!important;
   box-shadow:0 8px 20px rgba(23,32,43,.045)!important;
+}
+
+/* Avoid horizontal overflow from the breakout math. */
+.app-main{
+  overflow-x:hidden!important;
+}
+
+@media (max-width: 900px){
+  .app-main .page-header{
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:1.25rem!important;
+    padding-right:1.25rem!important;
+  }
+}
+</style>
+
+
+<style id="account-overview-status-white-final">
+/* Přehled účtů: all account status badges use white text. */
+.app-main .status-badge.status-volny,
+.app-main .status-badge.status-prirazen,
+.app-main .status-badge.status-rezervovany,
+.app-main .status-badge.status-ceka_uvolneni,
+.app-main .status-badge.status-deaktivovany,
+.app-main .status-badge.status-chyba_sync,
+.app-main .status-badge.status-rucni_import{
+  color:#ffffff!important;
 }
 </style>
 
@@ -3114,7 +3143,7 @@ function BankovniIntegrace({ navigate: _navigate }) {
         React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
             React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "Bankovn\u00ED integrace"),
             React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, "Spr\u00E1va bankovn\u00EDch napojen\u00ED a synchronizace \u00FAschovn\u00EDch \u00FA\u010Dt\u016F")),
-        React.createElement("div", { className: "px-8 py-6 space-y-4" },
+        React.createElement("div", { className: "px-8 py-6 space-y-4 max-w-3xl" },
             MOCK.some((i) => i.stav === 'chyba') && (React.createElement("div", { className: "alert alert-critical" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#FF6250' } }, "\u26A0"),
                 React.createElement("p", { className: "text-red-800 text-[13px]" },
@@ -3874,7 +3903,7 @@ function NastaveniCAK({ navigate: _navigate }) {
         React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
             React.createElement("h1", { className: "font-display text-[26px] text-ink", style: { fontStyle: 'italic', fontWeight: 300, letterSpacing: '-0.01em' } }, "Nastaven\u00ED \u010CAK"),
             React.createElement("p", { className: "text-[13px] mt-0.5", style: { color: '#888888' } }, "P\u0159\u00EDstupy advok\u00E1t\u016F, tokeny a synchronizace s \u010Ceskou advok\u00E1tn\u00ED komorou")),
-        React.createElement("div", { className: "px-8 py-6 max-w-3xl space-y-6" },
+        React.createElement("div", { className: "px-8 py-6 space-y-6" },
             hasExpired && (React.createElement("div", { className: "alert alert-critical" },
                 React.createElement("span", { className: "alert-icon", style: { color: '#FF6250' } }, "\u26A0"),
                 React.createElement("div", null,
@@ -4117,7 +4146,7 @@ function Sidebar({ current, navigate }) {
                                 } },
                                 React.createElement(Icon, { size: 15 })),
                             React.createElement("div", { className: "min-w-0" },
-                                React.createElement("div", { className: "text-[13px] leading-tight", style: {
+                                React.createElement("div", { className: "text-[1.2rem] leading-tight", style: {
                                         fontWeight: active ? 600 : 500,
                                         color: active ? '#ffffff' : 'rgba(255,255,255,0.55)',
                                         transition: 'color 0.15s',
