@@ -2202,6 +2202,176 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="table-polish-pass">
+/* Requested hierarchy + table contrast pass */
+.app-main h1,
+.app-main .page-header h1{
+  font-size:2.6rem!important;
+  line-height:1.08!important;
+  letter-spacing:-.035em!important;
+}
+
+/* Higher-contrast table header: clearer separation from both page and rows. */
+.app-main .data-table thead th{
+  background:#e3e8ee!important;
+  color:#28333f!important;
+  border-bottom:1px solid #c4cdd6!important;
+  font-weight:760!important;
+}
+
+/* BankDash-inspired pale blue hover instead of gray. */
+.app-main .data-table tbody tr{
+  transition:background-color .14s ease!important;
+}
+.app-main .data-table tbody tr:hover{
+  background:#eaf2ff!important;
+}
+.app-main .data-table tbody tr:hover td{
+  background:transparent!important;
+}
+</style>
+
+
+<style id="status-badge-redesign">
+/* Status = colored soft pill. The redundant inner dot is hidden. */
+.app-main .status-badge{
+  border:0!important;
+  box-shadow:none!important;
+  font-weight:700!important;
+}
+.app-main .status-badge .status-dot,
+.app-main .status-dot{
+  display:none!important;
+}
+
+/* Use the former semantic dot color as the badge's visual color,
+   but tint it for a readable light background. */
+.app-main .status-badge.status-koncept,
+.app-main .status-badge[data-status="koncept"]{
+  background:#eef1f4!important;
+  color:#46515c!important;
+}
+.app-main .status-badge.status-ceka,
+.app-main .status-badge.status-ceka-na-prostredky,
+.app-main .status-badge[data-status="ceka"]{
+  background:#fff3d6!important;
+  color:#73530d!important;
+}
+.app-main .status-badge.status-aktivni,
+.app-main .status-badge.status-probiha,
+.app-main .status-badge[data-status="aktivni"]{
+  background:#e7f1ff!important;
+  color:#245d9b!important;
+}
+.app-main .status-badge.status-prijato,
+.app-main .status-badge.status-splneno,
+.app-main .status-badge.status-dokoncena,
+.app-main .status-badge[data-status="dokoncena"]{
+  background:#e5f5ef!important;
+  color:#17634e!important;
+}
+.app-main .status-badge.status-chyba,
+.app-main .status-badge.status-zamitnuto,
+.app-main .status-badge.status-zrusena,
+.app-main .status-badge[data-status="chyba"]{
+  background:#fdebea!important;
+  color:#9a3732!important;
+}
+</style>
+
+
+<style id="button-padding-pass">
+/* Roomier controls — especially horizontally. */
+.app-main .btn{
+  min-height:2.875rem!important;
+  padding:.72rem 1.35rem!important;
+}
+.app-main .btn-primary{
+  padding-left:1.55rem!important;
+  padding-right:1.55rem!important;
+}
+.app-main .btn-sm{
+  min-height:2.5rem!important;
+  padding:.58rem 1.05rem!important;
+}
+.app-main .filter-tab{
+  min-height:2.75rem!important;
+  padding:.65rem 1.15rem!important;
+}
+</style>
+
+
+<style id="cak-table-no-overflow">
+/* Advokáti a přístupy ČAK: use the available content width, never a horizontal scroller. */
+.app-main .cak-table-wrap,
+.app-main .advokati-table-wrap,
+.app-main .table-scroll,
+.app-main .table-responsive{
+  max-width:none!important;
+}
+.app-main .cak-table-wrap,
+.app-main .advokati-table-wrap{
+  width:100%!important;
+  overflow:visible!important;
+}
+</style>
+
+<style id="cak-table-targeted">
+.app-main .card:has(h2):has(.data-table){
+  max-width:none;
+}
+.app-main .card:has(h2):has(.data-table) .overflow-x-auto,
+.app-main .card:has(h2):has(.data-table) .overflow-auto{
+  overflow-x:visible!important;
+  max-width:none!important;
+}
+.app-main .card:has(h2):has(.data-table) .data-table{
+  width:100%!important;
+  min-width:0!important;
+  table-layout:auto!important;
+}
+</style>
+
+
+<style id="section-note-redesign">
+/* End-of-section informational notes:
+   lighter, editorial callout instead of a generic rounded box. */
+.app-main .rounded-xl.px-5.py-4{
+  position:relative!important;
+  padding:1.15rem 1.35rem 1.15rem 1.55rem!important;
+  border:0!important;
+  border-radius:.85rem!important;
+  background:#f3f7fb!important;
+  box-shadow:none!important;
+  color:#3f4c59!important;
+  font-size:.9375rem!important;
+  line-height:1.65!important;
+}
+.app-main .rounded-xl.px-5.py-4::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.75rem;
+  bottom:.75rem;
+  width:3px;
+  border-radius:0 3px 3px 0;
+  background:#6d93bd;
+}
+.app-main .rounded-xl.px-5.py-4 p,
+.app-main .rounded-xl.px-5.py-4 span{
+  color:#3f4c59!important;
+  line-height:1.65!important;
+}
+.app-main .rounded-xl.px-5.py-4 strong{
+  color:#263646!important;
+  font-weight:720!important;
+}
+.app-main .rounded-xl.px-5.py-4 svg{
+  color:#557b9f!important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
