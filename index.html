@@ -2621,6 +2621,265 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="diagram-section-styles">
+.sidebar-utility-links{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:.4rem 0;
+}
+.sidebar-utility-link{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.6rem 1.25rem;
+  border:0;
+  background:transparent;
+  color:rgba(255,255,255,.4);
+  font-size:.8125rem;
+  font-weight:650;
+  letter-spacing:.025em;
+  text-align:left;
+  cursor:pointer;
+}
+.sidebar-utility-link:hover,
+.sidebar-utility-link.active{
+  background:rgba(255,255,255,.055);
+  color:#fff;
+  transform:none!important;
+}
+.sidebar-utility-link.active{
+  box-shadow:inset 3px 0 0 #009379;
+}
+.sidebar-utility-icon{
+  display:inline-flex;
+  opacity:.75;
+}
+
+.diagram-page{background:#f5f7fb;}
+.diagram-content{max-width:none!important;}
+.diagram-header-row{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;}
+.diagram-eyebrow,
+.diagram-section-kicker{
+  margin-bottom:.45rem;
+  color:#667585;
+  font-size:.8125rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.diagram-lead{
+  max-width:52rem;
+  margin-top:.65rem;
+  color:#526170;
+  font-size:1rem;
+  line-height:1.6;
+}
+.diagram-panel{
+  background:#fff;
+  border:1px solid #dfe5eb;
+  border-radius:1.25rem;
+  padding:1.6rem;
+  box-shadow:none;
+}
+.diagram-section-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:2rem;
+  margin-bottom:1.5rem;
+}
+.diagram-section-head h2{
+  margin:0;
+  color:#1f2c39;
+  font-size:1.45rem;
+  line-height:1.2;
+}
+.diagram-section-copy{
+  max-width:34rem;
+  margin:0;
+  color:#61707f;
+  font-size:.9375rem;
+  line-height:1.55;
+}
+.diagram-legend{display:flex;flex-wrap:wrap;gap:.65rem 1rem;padding-top:.15rem;}
+.diagram-legend-item{display:inline-flex;align-items:center;gap:.42rem;color:#647383;font-size:.8125rem;font-weight:650;}
+.legend-dot{width:.55rem;height:.55rem;border-radius:999px;display:inline-block;}
+.legend-dot.main{background:#009379;}
+.legend-dot.branch{background:#95a0aa;}
+
+.diagram-flow{
+  display:grid;
+  grid-template-columns:minmax(145px,1fr) 28px minmax(145px,1fr) 28px minmax(160px,1.08fr) 28px minmax(145px,1fr) 28px minmax(145px,1fr);
+  align-items:stretch;
+  gap:.35rem;
+}
+.diagram-state{
+  min-width:0;
+  border-radius:1rem;
+  padding:1rem;
+  border:1px solid transparent;
+}
+.diagram-state-kicker{
+  margin-bottom:.45rem;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  opacity:.68;
+}
+.diagram-state-title{font-size:1rem;font-weight:800;line-height:1.28;}
+.diagram-state-sub{margin-top:.12rem;font-size:.8125rem;font-weight:700;line-height:1.3;opacity:.82;}
+.diagram-state-note{margin:.65rem 0 0;font-size:.8125rem;line-height:1.5;opacity:.82;}
+.diagram-state-neutral{background:#eef1f4;color:#3d4853;border-color:#dde2e7;}
+.diagram-state-blue{background:#3b82f6;color:#fff;}
+.diagram-state-amber{background:#c9980a;color:#fff;}
+.diagram-state-green{background:#009379;color:#fff;}
+.diagram-state-slate{background:#667585;color:#fff;}
+.diagram-arrow{display:flex;align-items:center;justify-content:center;color:#8794a1;font-size:1.35rem;font-weight:800;}
+
+.diagram-branches{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:.9rem;
+  margin-top:1rem;
+  padding-top:1rem;
+  border-top:1px dashed #d7dee6;
+}
+.diagram-branch-card{
+  border-radius:.9rem;
+  padding:1rem 1.05rem;
+  border:1px solid #dce3ea;
+  background:#f8fafc;
+}
+.diagram-branch-from{
+  margin-bottom:.35rem;
+  color:#7b8793;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.diagram-branch-title{font-size:.9375rem;font-weight:800;line-height:1.35;color:#2c3945;}
+.diagram-branch-card p{margin:.45rem 0 0;color:#687684;font-size:.8125rem;line-height:1.5;}
+.diagram-branch-card.green{border-left:4px solid #009379;}
+.diagram-branch-card.danger{border-left:4px solid #ef6250;}
+.diagram-branch-card.neutral{border-left:4px solid #a8b0b8;}
+.diagram-branch-card.muted{border-left:4px solid #c3c9cf;}
+
+.diagram-er{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,1.25fr) minmax(0,1fr);
+  gap:1rem;
+  align-items:center;
+}
+.diagram-er-col{display:grid;gap:.75rem;}
+.diagram-er-center{display:grid;gap:.85rem;}
+.diagram-entity{
+  border:1px solid #d7e0e8;
+  border-radius:1rem;
+  overflow:hidden;
+  background:#fff;
+}
+.diagram-entity.primary{
+  border:2px solid #009379;
+  box-shadow:0 18px 45px rgba(13,50,67,.08);
+}
+.diagram-entity-head{
+  padding:.9rem 1rem .75rem;
+  background:#eef3f7;
+  border-bottom:1px solid #dde5ec;
+}
+.diagram-entity.primary .diagram-entity-head{background:#e7f5f2;border-bottom-color:#cfe8e2;}
+.diagram-entity-title{color:#20303e;font-size:1rem;font-weight:850;}
+.diagram-entity-meta{margin-top:.18rem;color:#71808e;font-size:.75rem;font-weight:650;}
+.diagram-entity-attrs{padding:.35rem 0;}
+.diagram-entity-attr{
+  padding:.5rem 1rem;
+  color:#4d5c69;
+  font-size:.8125rem;
+  border-top:1px solid #eef2f5;
+}
+.diagram-entity-attr:first-child{border-top:0;}
+.diagram-relation{
+  display:grid;
+  grid-template-columns:auto 1fr auto 1fr auto;
+  align-items:center;
+  gap:.45rem;
+  color:#748391;
+  font-size:.75rem;
+  font-weight:750;
+}
+.diagram-relation-line{height:1px;background:#cbd4dc;}
+.diagram-relation-label{text-align:center;white-space:nowrap;}
+.diagram-cardinality{
+  min-width:1.65rem;
+  padding:.18rem .38rem;
+  border-radius:.4rem;
+  background:#eef2f5;
+  color:#52616e;
+  text-align:center;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+.diagram-er-process{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.45rem;
+  padding:.7rem .85rem;
+  border-radius:.75rem;
+  background:#263646;
+  color:#fff;
+  font-size:.8125rem;
+  font-weight:700;
+}
+.diagram-er-process strong{color:#84d6c6;font-size:1rem;}
+.diagram-external-row{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.diagram-external-wrap{display:grid;gap:.55rem;}
+.diagram-external-relation{
+  color:#6f7d8a;
+  font-size:.8125rem;
+  font-weight:700;
+  text-align:center;
+}
+.diagram-note{
+  margin-top:1.15rem;
+  padding:1rem 1.15rem;
+  border-left:4px solid #6d93bd;
+  border-radius:.75rem;
+  background:#f3f7fb;
+  color:#4b5b69;
+  font-size:.875rem;
+  line-height:1.6;
+}
+.diagram-note strong{color:#273747;}
+
+@media (max-width:1180px){
+  .diagram-flow{
+    grid-template-columns:1fr;
+  }
+  .diagram-arrow{min-height:24px;transform:rotate(90deg);}
+  .diagram-branches{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:900px){
+  .diagram-section-head,
+  .diagram-header-row{display:block;}
+  .diagram-legend{margin-top:1rem;}
+  .diagram-er{grid-template-columns:1fr;}
+  .diagram-external-row{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .diagram-panel{padding:1rem;}
+  .diagram-branches{grid-template-columns:1fr;}
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -2769,6 +3028,7 @@ const PrehledUctu_1 = require("./components/PrehledUctu");
 const HlaseniCAK_1 = require("./components/HlaseniCAK");
 const BankovniIntegrace_1 = require("./components/BankovniIntegrace");
 const NastaveniCAK_1 = require("./components/NastaveniCAK");
+const Diagram_1 = require("./components/Diagram");
 const Wireframes_1 = require("./components/Wireframes");
 const NovaUschova_1 = require("./components/NovaUschova");
 function App() {
@@ -2784,6 +3044,7 @@ function App() {
             nav.screen === 'integrace' && React.createElement(BankovniIntegrace_1.default, { navigate: navigate }),
             nav.screen === 'nastaveni-cak' && React.createElement(NastaveniCAK_1.default, { navigate: navigate }),
             nav.screen === 'nova' && React.createElement(NovaUschova_1.default, { navigate: navigate }),
+            nav.screen === 'diagram' && React.createElement(Diagram_1.default, { navigate: navigate }),
             nav.screen === 'wireframe' && React.createElement(Wireframes_1.default, { navigate: navigate }))));
 }
 
@@ -4117,6 +4378,7 @@ const ICONS = {
     'nastaveni-cak': IconShield,
     detail: IconArchive,
     'hlaseni-cak': IconShield,
+    diagram: IconTable,
     wireframe: IconTable,
 };
 const GROUP_ICONS = {
@@ -4171,8 +4433,13 @@ function Sidebar({ current, navigate }) {
                                     } }, item.sub)))));
                 })));
         })),
-        React.createElement("button", { type: "button", onClick: () => navigate('wireframe'), className: "w-full text-left px-5 py-2.5", style: { borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: 'none', background: 'none', cursor: 'pointer' } },
-            React.createElement("div", { style: { fontSize: 10, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 500 } }, "Wireframes \u2197")),
+        React.createElement("div", { className: "sidebar-utility-links" },
+            React.createElement("button", { type: "button", onClick: () => navigate('diagram'), className: `sidebar-utility-link${current === 'diagram' ? ' active' : ''}` },
+                React.createElement("span", { className: "sidebar-utility-icon" }, React.createElement(IconTable, { size: 13 })),
+                React.createElement("span", null, "Diagram")),
+            React.createElement("button", { type: "button", onClick: () => navigate('wireframe'), className: `sidebar-utility-link${current === 'wireframe' ? ' active' : ''}` },
+                React.createElement("span", { className: "sidebar-utility-icon" }, React.createElement(IconTable, { size: 13 })),
+                React.createElement("span", null, "Wireframes"))),
         React.createElement("div", { className: "px-5 py-4", style: { borderTop: '1px solid rgba(255,255,255,0.06)' } },
             React.createElement("div", { className: "flex items-center gap-3" },
                 React.createElement("div", { className: "w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-bold font-mono shrink-0", style: {
@@ -4257,6 +4524,141 @@ function StatusBadge({ stav, size = 'md' }) {
     return (React.createElement("span", { className: "status-badge status-" + String(cfg.label || "default").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"") },
         React.createElement("span", { className: `status-dot${cfg.pulse ? ' pulse' : ''}`, style: { background: cfg.dot, width: size === 'sm' ? 5 : 6, height: size === 'sm' ? 5 : 6 } }),
         cfg.label));
+}
+
+};
+
+
+__mods["components/Diagram"] = function(module, exports, require) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = Diagram;
+
+const STATES = [
+    { id: "koncept", label: "Koncept", tone: "neutral", note: "Úschova je založena a údaje lze doplňovat." },
+    { id: "pripravena", label: "Připravena k nahlášení", tone: "blue", note: "Údaje jsou zkontrolované a připravené pro ČAK." },
+    { id: "nahlasena", label: "Nahlášena ČAK", sub: "čeká na prostředky", tone: "amber", note: "ČAK eviduje úschovu, čeká se na připsání peněz." },
+    { id: "prijaty", label: "Prostředky přijaty", tone: "green", note: "Peníze byly potvrzeny na účtu úschovy." },
+    { id: "vyplaceny", label: "Ukončena", sub: "prostředky vyplaceny", tone: "slate", note: "Standardní dokončení a výplata oprávněnému." },
+];
+
+const ENTITIES = [
+    { key: "advokat", title: "Advokát", meta: "spravuje", attrs: ["číslo ČAK", "přístupový token", "odpovědnost"] },
+    { key: "slozitel", title: "Složitel", meta: "vkládá prostředky", attrs: ["identita", "adresa", "podíl / částka"] },
+    { key: "uschova", title: "Úschova", meta: "centrální entita", attrs: ["ID úschovy", "stav", "částka", "spis", "časová osa"], primary: true },
+    { key: "opravneny", title: "Oprávněný", meta: "přijímá plnění", attrs: ["identita", "adresa", "podíl / částka"] },
+    { key: "ucet", title: "Účet úschovy", meta: "drží prostředky", attrs: ["číslo účtu", "banka", "stav účtu", "pohyby"] },
+    { key: "cak", title: "Hlášení ČAK", meta: "regulatorní evidence", attrs: ["stav hlášení", "odesláno", "odpověď ČAK"] },
+    { key: "banka", title: "Bankovní události", meta: "potvrzují pohyb peněz", attrs: ["příchozí platba", "odchozí platba", "synchronizace"] },
+];
+
+function Arrow() {
+    return React.createElement("div", { className: "diagram-arrow", "aria-hidden": "true" },
+        React.createElement("span", null, "→"));
+}
+
+function StateCard({ state }) {
+    return React.createElement("div", { className: `diagram-state diagram-state-${state.tone}` },
+        React.createElement("div", { className: "diagram-state-kicker" }, "Stav úschovy"),
+        React.createElement("div", { className: "diagram-state-title" }, state.label),
+        state.sub && React.createElement("div", { className: "diagram-state-sub" }, state.sub),
+        React.createElement("p", { className: "diagram-state-note" }, state.note));
+}
+
+function EntityCard({ entity }) {
+    return React.createElement("div", { className: `diagram-entity${entity.primary ? " primary" : ""}` },
+        React.createElement("div", { className: "diagram-entity-head" },
+            React.createElement("div", null,
+                React.createElement("div", { className: "diagram-entity-title" }, entity.title),
+                React.createElement("div", { className: "diagram-entity-meta" }, entity.meta))),
+        React.createElement("div", { className: "diagram-entity-attrs" },
+            entity.attrs.map((attr) => React.createElement("div", { key: attr, className: "diagram-entity-attr" }, attr))));
+}
+
+function Relation({ label, left, right }) {
+    return React.createElement("div", { className: "diagram-relation" },
+        React.createElement("span", { className: "diagram-cardinality" }, left),
+        React.createElement("span", { className: "diagram-relation-line" }),
+        React.createElement("span", { className: "diagram-relation-label" }, label),
+        React.createElement("span", { className: "diagram-relation-line" }),
+        React.createElement("span", { className: "diagram-cardinality" }, right));
+}
+
+function Diagram() {
+    return React.createElement("div", { className: "min-h-full diagram-page" },
+        React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
+            React.createElement("div", { className: "diagram-header-row" },
+                React.createElement("div", null,
+                    React.createElement("div", { className: "diagram-eyebrow" }, "Datový model a životní cyklus"),
+                    React.createElement("h1", null, "Diagram úschovy"),
+                    React.createElement("p", { className: "diagram-lead" }, "Přehled entit, vazeb a všech stavů, kterými může advokátní úschova v Praetoru projít.")))),
+        React.createElement("div", { className: "px-8 py-7 space-y-7 diagram-content" },
+
+            React.createElement("section", { className: "diagram-panel" },
+                React.createElement("div", { className: "diagram-section-head" },
+                    React.createElement("div", null,
+                        React.createElement("div", { className: "diagram-section-kicker" }, "01 · Stavový tok"),
+                        React.createElement("h2", null, "Životní cyklus úschovy")),
+                    React.createElement("div", { className: "diagram-legend" },
+                        React.createElement("span", { className: "diagram-legend-item" }, React.createElement("i", { className: "legend-dot main" }), "hlavní tok"),
+                        React.createElement("span", { className: "diagram-legend-item" }, React.createElement("i", { className: "legend-dot branch" }), "alternativní / výjimečný stav"))),
+                React.createElement("div", { className: "diagram-flow" },
+                    STATES.map((state, index) => React.createElement(React.Fragment, { key: state.id },
+                        React.createElement(StateCard, { state }),
+                        index < STATES.length - 1 && React.createElement(Arrow, null)))),
+                React.createElement("div", { className: "diagram-branches" },
+                    React.createElement("div", { className: "diagram-branch-card neutral" },
+                        React.createElement("div", { className: "diagram-branch-from" }, "z Konceptu"),
+                        React.createElement("div", { className: "diagram-branch-title" }, "Zrušena před přijetím prostředků"),
+                        React.createElement("p", null, "Proces končí bez přijetí peněz na účet úschovy.")),
+                    React.createElement("div", { className: "diagram-branch-card green" },
+                        React.createElement("div", { className: "diagram-branch-from" }, "z Prostředky přijaty"),
+                        React.createElement("div", { className: "diagram-branch-title" }, "Ukončena – prostředky vráceny"),
+                        React.createElement("p", null, "Alternativní ukončení, kdy jsou prostředky vráceny složiteli.")),
+                    React.createElement("div", { className: "diagram-branch-card muted" },
+                        React.createElement("div", { className: "diagram-branch-from" }, "mimo standardní tok"),
+                        React.createElement("div", { className: "diagram-branch-title" }, "Historická úschova"),
+                        React.createElement("p", null, "Záznam importovaný nebo evidovaný bez kompletního aktivního procesu.")),
+                    React.createElement("div", { className: "diagram-branch-card danger" },
+                        React.createElement("div", { className: "diagram-branch-from" }, "výjimečný stav"),
+                        React.createElement("div", { className: "diagram-branch-title" }, "Stav neznámý / rozpojený"),
+                        React.createElement("p", null, "Aplikace nemá spolehlivě potvrzenou vazbu na externí stav ČAK nebo banky.")))),
+
+            React.createElement("section", { className: "diagram-panel" },
+                React.createElement("div", { className: "diagram-section-head" },
+                    React.createElement("div", null,
+                        React.createElement("div", { className: "diagram-section-kicker" }, "02 · Entity a vztahy"),
+                        React.createElement("h2", null, "Entitně vztahový model")),
+                    React.createElement("p", { className: "diagram-section-copy" }, "Úschova je centrální entita. Účastníci, účet, ČAK a banka kolem ní vytvářejí procesní kontext.")),
+                React.createElement("div", { className: "diagram-er" },
+                    React.createElement("div", { className: "diagram-er-col" },
+                        React.createElement(EntityCard, { entity: ENTITIES[0] }),
+                        React.createElement(Relation, { left: "1", right: "N", label: "spravuje" }),
+                        React.createElement(EntityCard, { entity: ENTITIES[1] })),
+                    React.createElement("div", { className: "diagram-er-center" },
+                        React.createElement(EntityCard, { entity: ENTITIES[2] }),
+                        React.createElement("div", { className: "diagram-er-process" },
+                            React.createElement("span", null, "stav"),
+                            React.createElement("strong", null, "→"),
+                            React.createElement("span", null, "hlášení"),
+                            React.createElement("strong", null, "→"),
+                            React.createElement("span", null, "peníze"),
+                            React.createElement("strong", null, "→"),
+                            React.createElement("span", null, "ukončení"))),
+                    React.createElement("div", { className: "diagram-er-col" },
+                        React.createElement(EntityCard, { entity: ENTITIES[3] }),
+                        React.createElement(Relation, { left: "N", right: "1", label: "čerpá plnění" }),
+                        React.createElement(EntityCard, { entity: ENTITIES[4] }))),
+                React.createElement("div", { className: "diagram-external-row" },
+                    React.createElement("div", { className: "diagram-external-wrap" },
+                        React.createElement(EntityCard, { entity: ENTITIES[5] }),
+                        React.createElement("div", { className: "diagram-external-relation" }, "Úschova 1 → 0..N hlášení / změn")),
+                    React.createElement("div", { className: "diagram-external-wrap" },
+                        React.createElement(EntityCard, { entity: ENTITIES[6] }),
+                        React.createElement("div", { className: "diagram-external-relation" }, "Účet 1 → N bankovních událostí"))),
+                React.createElement("div", { className: "diagram-note" },
+                    React.createElement("strong", null, "Procesní pravidlo: "),
+                    "stav úschovy je výsledkem interních kroků advokáta a potvrzených událostí z ČAK a banky. Externí události tedy nemění jen metadata, ale mohou posunout úschovu do dalšího stavu."))));
 }
 
 };
