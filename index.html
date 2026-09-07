@@ -2880,6 +2880,62 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="detail-navigation-next-action-polish">
+/* Back to Centrum: button-like treatment, intentionally neutral gray rather than accent green. */
+.app-main .new-flow-back{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:2.75rem!important;
+  margin-bottom:1rem!important;
+  padding:.68rem 1.25rem!important;
+  border:1px solid #cbd3dc!important;
+  border-radius:.75rem!important;
+  background:#e7ebef!important;
+  color:#263646!important;
+  font-size:.9375rem!important;
+  font-weight:750!important;
+  line-height:1!important;
+  cursor:pointer!important;
+  box-shadow:none!important;
+  transition:background-color .14s ease,border-color .14s ease!important;
+}
+.app-main .new-flow-back:hover{
+  background:#dce2e8!important;
+  border-color:#b9c3cd!important;
+  color:#263646!important;
+  transform:none!important;
+}
+
+/* "Další krok" warning card: stronger hierarchy without adding motion. */
+.app-main .next-action-card.warning{
+  position:relative!important;
+  overflow:hidden!important;
+  padding:1.25rem 1.4rem 1.25rem 1.65rem!important;
+  border:1px solid #e3bb55!important;
+  border-radius:1rem!important;
+  background:linear-gradient(135deg,#fff9e8 0%,#fff3c9 100%)!important;
+  box-shadow:0 16px 38px rgba(122,91,20,.10)!important;
+}
+.app-main .next-action-card.warning::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  bottom:0!important;
+  width:5px!important;
+  background:#c9980a!important;
+}
+.app-main .next-action-card.warning h3,
+.app-main .next-action-card.warning strong{
+  color:#59430b!important;
+}
+.app-main .next-action-card.warning p{
+  color:#665728!important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
