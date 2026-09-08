@@ -3190,6 +3190,48 @@ html { font-size: 16px; }
 }
 </style>
 
+<style id="new-escrow-content-spacing">
+.app-main .new-flow-content{
+  padding-top:2rem!important;
+  padding-bottom:2.5rem!important;
+}
+.app-main .new-flow-content > :first-child{
+  margin-top:.5rem!important;
+}
+@media (max-width:900px){
+  .app-main .new-flow-content{
+    padding-top:1.5rem!important;
+    padding-bottom:2rem!important;
+  }
+}
+</style>
+
+<style id="bank-token-readability-fix">
+/* Bankovní integrace: karta ani její hlavička se při hoveru neposouvají. */
+.app-main .bank-card:hover,
+.app-main .bank-card:hover .bank-card-header,
+.app-main .bank-card-header:hover{
+  transform:none!important;
+  translate:none!important;
+}
+
+/* Nastavení ČAK: stavové texty v token-row musí být čitelné na světlém pozadí. */
+.app-main .token-row .status-badge,
+.app-main .token-row .status-badge[class],
+.app-main .token-row .status-badge *,
+.app-main .token-row:hover .status-badge,
+.app-main .token-row:hover .status-badge[class],
+.app-main .token-row:hover .status-badge *{
+  color:#263646!important;
+}
+
+/* Totéž pro případ, kdy stav není vykreslen přes status-badge, ale jako textový label. */
+.app-main .token-row .text-white,
+.app-main .token-row:hover .text-white{
+  color:#263646!important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -3536,7 +3578,7 @@ function NovaUschova({ navigate }) {
                 React.createElement("button", { className: "new-flow-back", onClick: () => navigate('centrum') }, "← Centrum úschov"),
                 React.createElement("h1", null, "Úschova byla vytvořena")
             ),
-            React.createElement("div", { className: "px-8 py-7" },
+            React.createElement("div", { className: "px-8 py-7 new-flow-content" },
                 React.createElement("div", { className: "new-flow-success" },
                     React.createElement("div", { className: "new-flow-success-icon" }, "✓"),
                     React.createElement("div", null,
@@ -3565,7 +3607,7 @@ function NovaUschova({ navigate }) {
                 React.createElement("button", { className: "btn btn-ghost", onClick: () => navigate('centrum') }, "Zrušit")
             )
         ),
-        React.createElement("div", { className: "px-8 py-7 new-flow-wrap" },
+        React.createElement("div", { className: "px-8 py-7 new-flow-wrap new-flow-content" },
             progress,
             error && React.createElement("div", { className: "new-flow-error", role: "alert" }, error),
 
