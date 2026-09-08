@@ -3232,6 +3232,17 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="escrow-full-flow">
+.app-main .next-action-card .btn{white-space:nowrap;}
+@media (max-width:900px){
+  .app-main .next-action-card{
+    align-items:flex-start!important;
+    flex-direction:column!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -4057,7 +4068,7 @@ function ProcessStepper({ stav }) {
             i < STEPS.length - 1 && (React.createElement("div", { className: `stepper-connector${done ? ' done' : ''}` }))));
     })));
 }
-function NextActionCard({ stav, chyba, navigate, id, }) {
+function NextActionCard({ stav, chyba, navigate, id, onAdvance, }) {
     const finished = ['ukoncena_vyplaceny', 'ukoncena_vraceny', 'zrusena', 'historicka'].includes(stav);
     if (finished) {
         return (React.createElement("div", { className: "next-action-card done" },
@@ -4071,8 +4082,8 @@ function NextActionCard({ stav, chyba, navigate, id, }) {
         koncept: {
             variant: 'ready',
             icon: '→',
-            desc: 'Doplňte chybějící údaje, přiřaďte bankovní účet a pokračujte k nahlášení ČAK.',
-            cta: 'Upravit úschovnu',
+            desc: 'Základní údaje jsou uložené. Dokončete přípravu úschovy a přesuňte ji do stavu Připravena k nahlášení.',
+            cta: 'Dokončit přípravu →',
         },
         pripravena: {
             variant: chyba ? 'warning' : 'ready',
@@ -4085,7 +4096,8 @@ function NextActionCard({ stav, chyba, navigate, id, }) {
         nahlasena_cak: {
             variant: 'waiting',
             icon: '⏳',
-            desc: 'Úschova je nahlášena v ČAK. Prostředky dosud nedorazily na bankovní účet. Zkontrolujte bankovní výpis.',
+            desc: 'Úschova je nahlášena v ČAK. Jakmile prostředky dorazí na účet, potvrďte jejich přijetí a pokračujte.',
+            cta: 'Potvrdit přijetí prostředků →',
         },
         prostredky_prijaty: {
             variant: 'ready',
@@ -4106,9 +4118,13 @@ function NextActionCard({ stav, chyba, navigate, id, }) {
             React.createElement("div", null,
                 React.createElement("div", { className: "font-semibold text-[13px] uppercase tracking-wide mb-1", sx: { color: '#555555' } }, "Dal\u0161\u00ED krok"),
                 React.createElement("div", { className: "text-[13px] text-ink leading-relaxed" }, c.desc))),
+        stav === 'koncept' && (React.createElement("button", { className: "btn btn-primary shrink-0", onClick: () => onAdvance('pripravena') }, c.cta)),
         c.cta && stav === 'pripravena' && (React.createElement("button", { className: "btn btn-success shrink-0", onClick: () => navigate('hlaseni-cak', id) }, c.cta)),
         chyba && stav === 'pripravena' && (React.createElement("button", { className: "btn btn-warning shrink-0", onClick: () => navigate('nastaveni-cak') }, "Obnovit token \u2192")),
-        stav === 'prostredky_prijaty' && (React.createElement("button", { className: "btn btn-primary shrink-0" }, c.cta))));
+        stav === 'nahlasena_cak' && (React.createElement("button", { className: "btn btn-primary shrink-0", onClick: () => onAdvance('prostredky_prijaty') }, c.cta)),
+        stav === 'prostredky_prijaty' && (React.createElement("div", { className: "flex gap-2 flex-wrap shrink-0" },
+            React.createElement("button", { className: "btn btn-primary", onClick: () => onAdvance('ukoncena_vyplaceny') }, "Ukončit – prostředky vyplaceny"),
+            React.createElement("button", { className: "btn btn-ghost", onClick: () => onAdvance('ukoncena_vraceny') }, "Ukončit – prostředky vráceny")))));
 }
 function OsobaCard({ osoba, role }) {
     return (React.createElement("div", { className: "participant-card mb-2.5" },
@@ -4145,7 +4161,29 @@ function OsobaCard({ osoba, role }) {
 }
 function DetailUschovy({ id, navigate }) {
     const [tab, setTab] = (0, react_1.useState)('pohyby');
+    const [, setFlowVersion] = (0, react_1.useState)(0);
     const u = mockData_1.MOCK_USCHOVY.find((x) => x.id === id) ?? mockData_1.MOCK_USCHOVY[0];
+
+    const advanceFlow = (nextStav) => {
+        u.stav = nextStav;
+        u.upraven = '03.09.2026';
+
+        const account = mockData_1.MOCK_UCTY.find((x) => x.id === u.ucetId);
+        if (account) {
+            if (nextStav === 'prostredky_prijaty') {
+                account.zustatek = u.castka;
+                account.stav = 'prirazen';
+                account.prirazenaUschovaId = u.id;
+                account.prirazenaUschovaVec = u.vec;
+            }
+            if (nextStav === 'ukoncena_vyplaceny' || nextStav === 'ukoncena_vraceny') {
+                account.zustatek = 0;
+                account.stav = 'ceka_uvolneni';
+            }
+        }
+
+        setFlowVersion((v) => v + 1);
+    };
     const ucet = mockData_1.MOCK_UCTY.find((x) => x.id === u.ucetId);
     const isDisconnected = u.stav === 'neznamy';
     const isFinished = ['ukoncena_vyplaceny', 'ukoncena_vraceny', 'zrusena', 'historicka'].includes(u.stav);
@@ -4183,7 +4221,7 @@ function DetailUschovy({ id, navigate }) {
                             u.posledniSync,
                             ". Praetor nem\u016F\u017Ee v automatick\u00E9m zpracov\u00E1n\u00ED pokra\u010Dovat. Ov\u011B\u0159te aktu\u00E1ln\u00ED stav p\u0159\u00EDmo v syst\u00E9mu \u010CAK a v bankovn\u00ED aplikaci. Po ru\u010Dn\u00ED oprav\u011B kontaktujte spr\u00E1vce syst\u00E9mu."))))),
             React.createElement(ProcessStepper, { stav: u.stav }),
-            React.createElement(NextActionCard, { stav: u.stav, chyba: u.chyba, navigate: navigate, id: u.id }),
+            React.createElement(NextActionCard, { stav: u.stav, chyba: u.chyba, navigate: navigate, id: u.id, onAdvance: advanceFlow }),
             React.createElement("div", { className: "grid grid-cols-3 gap-5 mb-5" },
                 React.createElement("div", { className: "col-span-2 space-y-4" },
                     React.createElement("div", { className: "card p-5" },
@@ -4351,7 +4389,14 @@ function HlaseniCAK({ id, navigate }) {
     };
     const handleOdeslat = async () => {
         setLoading(true);
-        await new Promise((r) => setTimeout(r, 1800));
+        await new Promise((r) => setTimeout(r, 700));
+        u.stav = 'nahlasena_cak';
+        u.hlaseniCAK = {
+            evidencniCislo: evidCislo,
+            datum: '03.09.2026',
+            stav: 'odeslano',
+        };
+        u.upraven = '03.09.2026';
         setLoading(false);
         setVysledek('odeslano');
         setStep('vysledek');
@@ -4491,7 +4536,7 @@ function HlaseniCAK({ id, navigate }) {
                             new Date().toLocaleTimeString('cs-CZ'),
                             " \u00B7 JUDr. Pavel Kr\u00E1tk\u00FD")),
                     React.createElement("div", { className: "flex justify-center gap-3" },
-                        React.createElement("button", { className: "btn btn-primary", onClick: () => navigate('detail', id) }, "Zp\u011Bt na \u00FAschovnu"),
+                        React.createElement("button", { className: "btn btn-primary", onClick: () => navigate('detail', id) }, "Pokra\u010Dovat v \u00FAschov\u011B \u2192"),
                         React.createElement("button", { className: "btn btn-ghost", onClick: () => navigate('centrum') }, "Centrum \u00FAschov")))),
                 vysledek === 'chyba_spojeni' && (React.createElement("div", { className: "rounded-xl px-8 py-8", sx: {
                         background: 'linear-gradient(135deg,#fef2f2,#fff5f5)',
