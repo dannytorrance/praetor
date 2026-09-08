@@ -2939,6 +2939,45 @@ html { font-size: 16px; }
 .sidebar-utility-link > span,
 .sidebar-utility-link.active > span{color:rgba(255,255,255,.55)!important;}
 </style>
+
+<style id="diagram-wireframe-visual-alignment">
+/* Diagram spacing: mirror the comfortable vertical rhythm used elsewhere. */
+.app-main .diagram-content{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:1.75rem!important;
+}
+.app-main .diagram-content > *{
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
+
+/* Utility links: muted by default, white when active. */
+.sidebar-utility-link > span{
+  color:rgba(255,255,255,.55)!important;
+}
+.sidebar-utility-link.active > span{
+  color:#ffffff!important;
+}
+
+/* Diagram should visually live in the same warm canvas as Wireframes. */
+.app-main:has(.diagram-content){
+  background:rgb(238,234,227)!important;
+}
+.app-main:has(.diagram-content) .page-header{
+  background:rgb(238,234,227)!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+.app-main:has(.diagram-content) .page-header.is-stuck{
+  background:rgb(238,234,227)!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
