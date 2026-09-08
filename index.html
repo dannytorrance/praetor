@@ -3066,6 +3066,97 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="utility-pages-unified-structure">
+/* Diagram + Wireframes share one page shell, header rhythm and warm canvas. */
+.app-main .utility-page{
+  min-height:100%!important;
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  background:rgb(238,234,227)!important;
+  overflow-x:hidden!important;
+}
+.app-main .utility-page-header{
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  padding:36px 40px 0!important;
+  margin:0 0 36px!important;
+  background:rgb(238,234,227)!important;
+  border:0!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  position:static!important;
+}
+.app-main .utility-page-eyebrow,
+.app-main .utility-page-header .diagram-eyebrow{
+  margin:0 0 8px!important;
+  color:#999!important;
+  font-size:13px!important;
+  line-height:1.2!important;
+  font-weight:700!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+}
+.app-main .utility-page-header h1,
+.app-main .utility-page-title{
+  margin:0 0 8px!important;
+  color:#1a1a1a!important;
+  font-size:30px!important;
+  line-height:1.15!important;
+  font-weight:800!important;
+  letter-spacing:-.025em!important;
+}
+.app-main .utility-page-lead,
+.app-main .utility-page-header .diagram-lead{
+  max-width:none!important;
+  margin:0!important;
+  color:#777!important;
+  font-size:13px!important;
+  line-height:1.5!important;
+  font-weight:400!important;
+}
+.app-main .utility-page-body{
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+
+/* Diagram body uses the same outer page gutter as Wireframes. */
+.app-main .diagram-content.utility-page-body{
+  padding:0 40px 56px!important;
+  background:rgb(238,234,227)!important;
+}
+
+/* Wireframes body gets the same wrapper/gutter instead of relying on the page's inline padding. */
+.app-main .wireframes-flow.utility-page-body{
+  display:flex!important;
+  align-items:flex-start!important;
+  gap:0!important;
+  padding:0 40px 56px!important;
+  overflow-x:auto!important;
+}
+
+/* The nested Diagram row should not introduce a second wrapper rhythm. */
+.app-main .diagram-header-row{
+  display:block!important;
+  margin:0!important;
+}
+
+@media (max-width:900px){
+  .app-main .utility-page-header{
+    padding:28px 24px 0!important;
+    margin-bottom:28px!important;
+  }
+  .app-main .diagram-content.utility-page-body,
+  .app-main .wireframes-flow.utility-page-body{
+    padding:0 24px 40px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -4771,14 +4862,14 @@ function Relation({ label, left, right }) {
 }
 
 function Diagram() {
-    return React.createElement("div", { className: "min-h-full diagram-page" },
-        React.createElement("div", { className: "page-header px-8 pt-7 pb-5" },
+    return React.createElement("div", { className: "min-h-full diagram-page utility-page" },
+        React.createElement("div", { className: "diagram-page-header utility-page-header" },
             React.createElement("div", { className: "diagram-header-row" },
                 React.createElement("div", null,
                     React.createElement("div", { className: "diagram-eyebrow" }, "Datový model a životní cyklus"),
                     React.createElement("h1", null, "Diagram úschovy"),
                     React.createElement("p", { className: "diagram-lead" }, "Přehled entit, vazeb a všech stavů, kterými může advokátní úschova v Praetoru projít.")))),
-        React.createElement("div", { className: "px-8 py-7 space-y-7 diagram-content" },
+        React.createElement("div", { className: "px-8 py-7 space-y-7 diagram-content utility-page-body" },
 
             React.createElement("section", { className: "diagram-panel" },
                 React.createElement("div", { className: "diagram-section-head" },
@@ -5096,12 +5187,12 @@ function Screen3() {
 }
 // ── Main ──────────────────────────────────────────────────────────────────────
 function Wireframes({ navigate }) {
-    return (react_1.default.createElement("div", { style: { minHeight: '100%', background: '#EEEAE3', padding: '36px 40px 56px' } },
-        react_1.default.createElement("div", { style: { marginBottom: 36 } },
-            react_1.default.createElement("div", { style: { fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#999', marginBottom: 8 } }, "Lo-fi Wireframes \u00B7 Praetor"),
-            react_1.default.createElement("h1", { style: { fontSize: 30, fontWeight: 800, color: '#1A1A1A', letterSpacing: '-0.025em', margin: '0 0 8px' } }, "Nahl\u00E1sit \u00FAschovu \u010CAK"),
-            react_1.default.createElement("p", { style: { fontSize: 13, color: '#777', margin: 0, lineHeight: 1.5 } }, "Flow: v\u00FDb\u011Br \u00FAschovy z dashboardu \u2192 detail \u2192 odesl\u00E1n\u00ED do \u010CAK")),
-        react_1.default.createElement("div", { style: { display: 'flex', alignItems: 'flex-start', overflowX: 'auto', paddingBottom: 32, gap: 0 } },
+    return (react_1.default.createElement("div", { className: "utility-page wireframes-page" },
+        react_1.default.createElement("div", { className: "utility-page-header" },
+            react_1.default.createElement("div", { className: "utility-page-eyebrow" }, "Lo-fi Wireframes \u00B7 Praetor"),
+            react_1.default.createElement("h1", { className: "utility-page-title" }, "Nahl\u00E1sit \u00FAschovu \u010CAK"),
+            react_1.default.createElement("p", { className: "utility-page-lead" }, "Flow: v\u00FDb\u011Br \u00FAschovy z dashboardu \u2192 detail \u2192 odesl\u00E1n\u00ED do \u010CAK")),
+        react_1.default.createElement("div", { className: "utility-page-body wireframes-flow" },
             react_1.default.createElement(Frame, { step: 1, title: "Centrum \u00FAschov", subtitle: "U\u017Eivatel identifikuje \u00FAschovu k nahl\u00E1\u0161en\u00ED", notes: [
                     'Řádek ve stavu „Připravena k nahlášení" je vizuálně odlišen barevným zvýrazněním',
                     'Klikem na řádek tabulky se přechází na detail úschovy',
@@ -5119,10 +5210,7 @@ function Wireframes({ navigate }) {
                     'Po kontrole uživatel odešle formulář tlačítkem „Odeslat do ČAK"',
                 ] },
                 react_1.default.createElement(Screen3, null))),
-        react_1.default.createElement("button", { onClick: () => navigate('centrum'), style: {
-                background: 'none', border: 'none', cursor: 'pointer',
-                fontSize: 12, color: '#999', display: 'flex', alignItems: 'center', gap: 5, padding: 0,
-            } }, "\u2190 Zp\u011Bt do aplikace")));
+        ));
 }
 
 };
