@@ -3032,6 +3032,40 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="diagram-layout-overflow-fix">
+/* Diagram header: keep it inside the viewport and avoid the exposed strip below it. */
+.app-main:has(.diagram-content) .page-header{
+  width:100%!important;
+  max-width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  box-sizing:border-box!important;
+  padding-bottom:36px!important;
+  overflow:hidden!important;
+}
+.app-main .diagram-header-row{
+  margin-bottom:0!important;
+}
+
+/* Keep the diagram canvas continuous and prevent accidental horizontal overflow. */
+.app-main .diagram-content{
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  background:rgb(238,234,227)!important;
+  overflow-x:hidden!important;
+}
+.app-main:has(.diagram-content){
+  overflow-x:hidden!important;
+}
+@media (max-width:900px){
+  .app-main:has(.diagram-content) .page-header{
+    padding-bottom:28px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
