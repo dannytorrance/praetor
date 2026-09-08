@@ -2978,6 +2978,60 @@ html { font-size: 16px; }
 }
 </style>
 
+
+<style id="diagram-wireframe-header-match">
+/* Keep the warm Wireframes canvas on the Diagram content itself too. */
+.app-main .diagram-content{
+  background:rgb(238,234,227)!important;
+}
+
+/* Diagram intro/header follows the same typography and spacing as Wireframes. */
+.app-main:has(.diagram-content) .page-header{
+  padding:36px 40px 0!important;
+  background:rgb(238,234,227)!important;
+}
+.app-main .diagram-header-row{
+  display:block!important;
+  margin-bottom:36px!important;
+}
+.app-main .diagram-header-row .diagram-eyebrow{
+  margin:0 0 8px!important;
+  color:#999!important;
+  font-size:13px!important;
+  line-height:1.2!important;
+  font-weight:700!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+}
+.app-main .diagram-header-row h1{
+  margin:0 0 8px!important;
+  color:#1a1a1a!important;
+  font-size:30px!important;
+  line-height:1.15!important;
+  font-weight:800!important;
+  letter-spacing:-.025em!important;
+}
+.app-main .diagram-header-row .diagram-lead{
+  max-width:none!important;
+  margin:0!important;
+  color:#777!important;
+  font-size:13px!important;
+  line-height:1.5!important;
+  font-weight:400!important;
+}
+.app-main .diagram-content{
+  padding:0 40px 56px!important;
+}
+@media (max-width:900px){
+  .app-main:has(.diagram-content) .page-header{
+    padding:28px 24px 0!important;
+  }
+  .app-main .diagram-content{
+    padding:0 24px 40px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="root"></div>
